@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+/*-----Header------*/
+.container{
+    padding: 20px 10%;
+}
+.discount__panel{
+    width: 100%;
+    height: 60px;
+    padding: 20px ;
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.header__inner{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+}
+.icons a{
+   margin: 0 20px;
+   
+}
+.icons i{
+    color: black;
+}
+
+.categories{
+    background-color: antiquewhite;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: 500;
+
+}
+
+.categories ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.categories ul li a:visited{
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width : 768px ) {
+    
+}
