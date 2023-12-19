@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -12,14 +12,23 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+
   </head>
   <body>
     <header class="header">
         <div class="container discount__panel">
-            <p>Ürünlerimizde %10 indirim var. Bu fırsatı kaçırma!</p>
+            <marquee direction="left" scrollamount="5">Ürünlerimizde %10 indirim var. Bu fırsatı kaçırma!</marquee>
         </div>
         <div class="container header__inner">
-            <h1 class="logo">Logo</h1>
+            <h1 class="logo">ZEE</h1>
+            <form action="" method="get" class="search">
+              <input type="text" placeholder="Ürün Ara">
+              <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
             <div class="icons"> 
                 <a href="#" class="logging"><i class="fa-regular fa-user"></i></a>
                 <a href="#" class="shopping"><i class="fa-solid fa-cart-shopping"></i></a>
@@ -27,12 +36,11 @@
         </div>
         <div class="container categories">
             <ul class="nav__links">
-                <li class="nav__itemm"><a href="#">Kadın</a></li>
-                <li class="nav__item"><a href="#">Erkek</a></li>
-                <li class="nav__item"><a href="#">Çocuk</a></li>
-                <li class="nav__item"><a href="#">Çok Satanlar</a></li>
-                <li class="nav__item"><a href="#">İndirimli Ürünler</a></li>
-                <li class="nav__item"><a href="#">Yeni Gelenler</a></li>
+                <li class="nav__item"><a href="#">YENİ</a></li>
+                <li class="nav__item"><a href="#">GİYİM</a></li>
+                <li class="nav__item"><a href="#">ÇANTA</a></li>
+                <li class="nav__item"><a href="#">AKSESUAR</a></li>
+                <li class="nav__item"><a href="#">İNDİRİMLİ ÜRÜNLER</a></li>
             </ul>
         </div>
     </header>
