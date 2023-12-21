@@ -9,6 +9,7 @@
 }
 :root{
   --bg-color : rgb(31, 24, 24);
+  --bg-blue  : blue;
 
 }
 
@@ -126,7 +127,7 @@
     color:black;
 }
 .categories ul li a:hover{
-    color:indigo;
+    color:rgb(125, 122, 126);
 }
 
 .nav__links {
@@ -150,9 +151,6 @@
     transition: background-color 0.3s ease-in-out;
   }
   
-  .nav__item > a:hover {
-    background-color: #555555;
-  }
   
   /* Alt menüler */
   .nav__item ul {
