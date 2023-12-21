@@ -1,3 +1,5 @@
+
+
 *{
     margin: 0;
     padding: 0;
@@ -5,18 +7,23 @@
     text-decoration: none;
     list-style: none;
 }
+:root{
+  --bg-color : rgb(31, 24, 24);
+
+}
 
 /*-----Header------*/
 
 .container{
     padding: 20px 10%;
+    margin: 0 auto;
 }
 .discount__panel{
     width: 100%;
     height: 5px;
     padding: 15px ;
     text-align: center;
-    background-color: black;
+    background-color: rgb(255, 0, 0);
     color: white;
     font-size: smaller;
     font-weight: lighter;
@@ -31,15 +38,79 @@
 }
 .icons a{
    padding: 0 20px;
+   text-decoration: none;
+   color: #fff;
    
 }
 .icons i{
     color: black;
 }
 
+/* Genel stiller */
+.icons ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Ana menü öğeleri */
+  .icons > ul > li {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .icons ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f6f6;
+    border: 1px solid #f0e9e9;
+    width: 200px;
+    height: 150px;
+    z-index: 1;
+    padding: 0;
+  }
+  
+  .icons ul li:hover ul {
+    display: block;
+  }
+  
+  /* Alt menü öğeleri */
+  .icons ul li ul li {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid  chocolate;
+  }
+  .icons ul li ul li:hover{
+    background-color: #e0db40;
+  }
+  
+  .icons ul li ul li a {
+    display: block;
+    padding: 10px;
+    color: chocolate;
+    font-size: 15px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .icons ul li ul li:last-child a {
+    border-bottom: none;
+  }
+  
+  .icons ul li ul li a:hover {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .icons ul li a:hover {
+    transition: all 0.3s ease-in-out;
+  }
+  
 .categories{
-    background-color: antiquewhite;
+    background-color: var(--bg-color);
     color: black;
+    padding: 10px;
     font-size: 1.05rem;
     font-weight: 500;
     height: 50px;
@@ -57,6 +128,71 @@
 .categories ul li a:hover{
     color:indigo;
 }
+
+.nav__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav__item {
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
+  }
+  
+  /* Ana menü linkleri */
+  .nav__item > a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    display: inline-block;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .nav__item > a:hover {
+    background-color: #555555;
+  }
+  
+  /* Alt menüler */
+  .nav__item ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .nav__item:hover ul {
+    display: block;
+  }
+  
+  /* Alt menü linkleri */
+  .nav__item ul li {
+    width: 200px;
+    border-bottom: 1px solid #a7a1a1;
+  }
+  
+  .nav__item ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #000000;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .nav__item ul li a:hover {
+    background-color: rgb(255, 187, 0);
+  }
+  
+  /* İndirimli Ürünler linki */
+  .nav__item:last-child a {
+    color: red; /* İndirimli ürünler linkini özel bir renkle vurgula */
+  }
 
 h1.logo{
     font-family: 'Cinzel Decorative', serif;
