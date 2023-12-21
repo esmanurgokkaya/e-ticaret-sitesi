@@ -1,5 +1,5 @@
 
-
+/*hsl(356,39%,60%)*/
 *{
     margin: 0;
     padding: 0;
@@ -8,8 +8,11 @@
     list-style: none;
 }
 :root{
-  --bg-color : rgb(31, 24, 24);
+  --bg-black : rgb(31, 24, 24);
   --bg-blue  : blue;
+  --bg-red   : red;
+  --bg-white : white;
+  --bg-gray  : gray;
 
 }
 
@@ -25,7 +28,7 @@
     padding: 15px ;
     text-align: center;
     background-color: rgb(255, 0, 0);
-    color: white;
+    color: var(--bg-white);
     font-size: smaller;
     font-weight: lighter;
 }
@@ -44,7 +47,7 @@
    
 }
 .icons i{
-    color: black;
+    color: var(--bg-black);
 }
 
 /* Genel stiller */
@@ -59,6 +62,7 @@
     position: relative;
     display: inline-block;
   }
+
   
   .icons ul li ul {
     display: none;
@@ -109,7 +113,7 @@
   }
   
 .categories{
-    background-color: var(--bg-color);
+    background-color: var(--bg-black);
     color: black;
     padding: 10px;
     font-size: 1.05rem;
@@ -162,34 +166,85 @@
     border: 1px solid #ffffff;
     padding: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1;
   }
   
   .nav__item:hover ul {
     display: block;
-  }
-  
-  /* Alt menü linkleri */
-  .nav__item ul li {
-    width: 200px;
-    border-bottom: 1px solid #a7a1a1;
+    position:absolute;
   }
   
   .nav__item ul li a {
     display: block;
     padding: 10px;
     text-decoration: none;
-    color: #000000;
-    transition: background-color 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 
-  .nav__item ul li a:hover {
-    background-color: rgb(255, 187, 0);
+  /*ilk alanlar*/
+  .mainmenubtn {
+    background-color: var(--bg-white);
+    width: 200px;
+    height: 50px;
+    color: gray;
+    border: grey;
+    left: 0;
+    border: 1px solid gray;
+    padding: 10PX;
+    box-shadow: 0 20px 15px rgba(78, 75, 75, 0.1);
+    z-index: 1;
+    margin-top:20px;
   }
+
+  /*Tüm alanlar*/
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /*alt alanlar*/
+  .dropdown-child {
+    display: none;
+    background-color: var(--bg-white);
+    color: gray;
+    border: grey;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  /*alt alanların butonları*/
+  .dropdown-child button{
+    margin: 5px;
+    width: 200px;
+    height: 50px;
+    background-color: var(--bg-white);
+    border: 1px solid var(--bg-gray);
+    box-shadow: 0 20px 15px rgba(78, 75, 75, 0.1);
+  }
+  /*alt alanların linkleri*/
+  .dropdown-child a {
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease-in-out;
+    margin-bottom: 10px;
+  }
+
+  /*kategorilerin üzerine gidildiğinde alt alanların durumu */
+  .dropdown:hover .dropdown-child {
+    display: block;
+    position:absolute;
+    margin:-50px 0 0px 200px; /* üst-sağ-aşağı-sol */
+  }
+
   
   /* İndirimli Ürünler linki */
   .nav__item:last-child a {
-    color: red; /* İndirimli ürünler linkini özel bir renkle vurgula */
+    color: var(--bg-red); /* İndirimli ürünler linkini özel bir renkle vurgula */
+  }
+
+  .nav__item:last-child a:hover{
+    color: rgb(223, 23, 23);
   }
 
 h1.logo{
@@ -219,5 +274,7 @@ form.search button {
     font-size: 16px;
     font-weight: 500;
     border: none;
-    background-color: white;
+    background-color: var(--bg-white);
 }
+
+
