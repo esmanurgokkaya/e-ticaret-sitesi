@@ -1,3 +1,16 @@
+/*Kutu Genişlikleri*/
+.col-1{width: 8.33%;}
+.col-2{width: 16.66%;}
+.col-3{width: 25%;}
+.col-4{width: 33.33%;}
+.col-5{width: 41.66%;}
+.col-6{width: 50%;}
+.col-7{width: 58.33%;}
+.col-8{width: 66.66%;}
+.col-9{width: 75%;}
+.col-10{width: 83.33%;}
+.col-11{width: 91.66%;}
+.col-12{width: 100%;}
 
 /*hsl(356,39%,60%)*/
 *{
@@ -164,8 +177,6 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #ffffff;
-    border: 1px solid #ffffff;
     padding: 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
@@ -183,7 +194,7 @@
   }
 
   /*ilk alanlar*/
-  .mainmenubtn {
+  .mainmenubtn{
     background-color: var(--bg-white);
     width: 200px;
     height: 50px;
@@ -206,7 +217,7 @@
   /*alt alanlar*/
   .dropdown-child {
     display: none;
-    background-color: var(--bg-white);
+    
     color: gray;
     border: grey;
     padding: 10px;
@@ -279,9 +290,66 @@ form.search button {
     background-color: var(--bg-white);
 }
 
-section{
-  height: 800px;
+.blink{
+  width:200px;
+  height: 50px;
+  padding-left: 40%; 
+  text-align: center; 
+  line-height: 50px;
+} 
+  
+span{ 
+  font-size: 25px; 
+  font-family: cursive; 
+  color: rgb(221, 17, 17); 
+  animation: blink 0.5s linear infinite; 
+} 
+
+@keyframes blink
+{
+  0%{opacity: 0;} 
+  50%{opacity: .5;}
+  100%{opacity: 1;} 
 }
+
+#menu{
+  height: 908px;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 2px;
+}
+
+.col-3{
+  width: 25%;
+}
+.col-6{
+  width: 50%;
+  height: 100%;
+}
+
+.col-12{
+  width: 100%;
+  height: 100%;
+}
+
+#resim1 a img{
+  width: 100%;
+  height: 908px;
+  z-index: 1;
+}
+
+#resim2 a img{
+  width: 100%;
+  height: 908px;
+  z-index: 1;
+}
+
+section{
+  overflow: auto;
+}
+
 
 
 .footer{
@@ -319,7 +387,32 @@ section{
   clear: both;
 }
 
+#logo{
 
+}
+
+@media only screen and (max-width: 767px) {
+  .header__inner {
+    flex-direction: row; /* Öğeleri dikey olarak sırala */
+    align-items: center; /* Öğeleri yatayda ortala */
+  }
+
+  .logo {
+    order: 2; /* Logoyu ortaya taşı */
+    margin-bottom: 10px; /* Logonun diğer öğelerden olan boşluğu */
+    width: 30%;
+  }
+
+  .icons {
+    display: flex; /* Simgeleri yan yana sırala */
+    order: 3; /* Simgeleri en üste taşı */
+    margin-bottom: 10px; /* Simgelerin diğer öğelerden olan boşluğu */
+  }
+
+  form.search {
+    order: 3; /* Arama formunu en alta taşı */
+  } 
+}
 
 @media screen and (min-width: 875px){
   .footer .first-box{
