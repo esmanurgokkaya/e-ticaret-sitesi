@@ -1,10 +1,48 @@
 :root{
     --border-color: #cce7d0;
 }
-/* section{
-} */
+section{
+    display: flex;
+    justify-content: space-between;
+}
+.filter-container {
+    width: 20%;
+    padding: 20px;
+    margin: 95px 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+   height: 100%;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  select,
+  input[type="text"],
+  input[type="range"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    text-align: center;
+    background: var(--border-color);
+    width: 100%;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
 .products{
-    margin: 50px;
+    width: 70%;
+    margin: 50px 50px 50px 0;
     display: flex;
     justify-content: space-between;
     padding: 20px; 

@@ -97,7 +97,49 @@
     </header>
 
 
-        <section>
+        <section >
+
+          <div class="filter-container">
+            <form id="filter-form">
+              <label for="category">Beden</label>
+              <select id="category" name="category">
+                <option value="empty">Beden Seçiniz</option>
+                <option value="xs">XS</option>
+                <option value="s">S</option>
+                <option value="m">M</option>
+                <option value="l">L</option>
+                <option value="xl">XL</option>
+                <option value="xxl">XXL</option>
+
+
+                <!-- Diğer kategori seçenekleri eklenebilir -->
+              </select>
+        
+              <label for="price-range">Fiyat Aralığı</label>
+              <input type="range" id="price-range" name="price-range" min="0" max="1000">
+        
+              <label for="brand">Marka</label>
+              <input type="text" id="brand" name="brand">
+        
+              <label for="size">Renk</label>
+              <select id="size" name="size">
+                <option value="small">Kırmızı</option>
+                <option value="medium">Mavi</option>
+                <option value="large">Yeşil</option>
+                <option value="large">Mor</option>
+                <option value="large">Siyah</option>
+
+                <!-- Diğer beden seçenekleri eklenebilir -->
+              </select>
+        
+              <label for="color">Kumaş Tipi</label>
+              <input type="text" id="color" name="color">
+        
+              <button type="submit">Filtrele</button>
+            </form>
+          </div>
+        
+          <!-- Diğer sayfa içeriği -->
             <div class="products">
                 <!-- 1.ürün -->
                 <div class="product">
