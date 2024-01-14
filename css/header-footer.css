@@ -55,7 +55,7 @@
     align-items: center;
   
 }
-.icons a{
+.icons a, a:link{
    padding: 0 20px;
    text-decoration: none;
    color: #fff;
@@ -121,6 +121,9 @@
   
   .icons ul li ul li a:hover {
     transition: all 0.3s ease-in-out;
+  }
+  .icons ul li a:link{
+    color: white;
   }
   
   .icons ul li a:hover {
