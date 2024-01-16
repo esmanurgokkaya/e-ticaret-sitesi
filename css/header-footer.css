@@ -20,6 +20,7 @@
     text-decoration: none;
     list-style: none;
     font-family: 'Times New Roman', Times, serif;
+    scroll-behavior: smooth;
 }
 :root{
   --bg-black : rgb(31, 24, 24);
@@ -303,6 +304,12 @@ section{
     width: 100%;
     height: 100%;
     background-color:var(--bg-foot);
+    padding:  50px 0 ;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+
 }
 
 .footer a{
@@ -312,6 +319,8 @@ section{
 
 .footer p{
   margin-bottom: 5px;
+  text-align: center;
+
 }
 
 .foot-baslik{
@@ -319,20 +328,22 @@ section{
   border-bottom: black 1px solid;
   font-weight: bold;
   font-size: large;
+  text-align: center;
+  margin-top: 15px;
 }
 
 .footer .first-box{
   text-align: left;
   margin: 20px;
   margin-left: 60px;
-  float: left;
+  /* float: left; */
   font-weight: lighter;
   width: 20%;
 }
 
-.clear{
+/* .clear{
   clear: both;
-}
+} */
 
 @media only screen and (max-width: 767px) {
   .header__inner {
@@ -360,6 +371,9 @@ section{
 @media screen and (min-width: 875px){
   .footer .first-box{
     width: 15%;
+  }
+  .footer .first-box{
+    margin: 0;
   }
 }
 
