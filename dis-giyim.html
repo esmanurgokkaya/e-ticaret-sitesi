@@ -13,6 +13,8 @@
     />
     <link rel="stylesheet" href="css/header-footer.css">
     <link rel="stylesheet" href="css/products.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+    <script src="js/sepete-ekleme.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -33,7 +35,17 @@
                       <li><a href="login-register.html">Kayıt Ol</a></li>
                     </ul>
                   </li>
-                  <li><a href="#" id="icon2" class="shopping" title="Sepete Ekle"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                  <li>
+                      <a href="#"  class="shopping" title="Sepete Ekle">
+                      <i id="icon2" class="fa-solid fa-cart-shopping"></i>
+                      <span id="count">0</span></a>
+                      <div id="shopping-basket" class="shopping-basket">
+                        <div id="basket-list"></div>
+                        <div id="total-price"></div>
+                        <button id="clear-basket">Sepeti Temizle</button>
+                      </div>
+                      
+                  </li>
                 </ul>
             </div>
         </div>
@@ -144,12 +156,12 @@
                 <!-- 1.ürün -->
                 <div class="product">
                     <img src="images/dis giyim/disGiyim1.webp" alt="">
-                   <div class="description">
+                    <div class="description">
                     <span>Elbise takım </span>
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
-                    <button><a href="#">Sepete Ekle</a></button>
+                    <input type="button" class="button" value="Sepete Ekle">
                    </div>
         
                 </div>
@@ -161,7 +173,7 @@
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
-                    <button><a href="#">Sepete Ekle</a></button>
+                    <input type="button" class="button" value="Sepete Ekle">
                    </div>
                 </div>
                 <!-- 3.ürün -->
@@ -172,7 +184,7 @@
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
-                    <button><a href="#">Sepete Ekle</a></button>
+                    <input type="button" class="button" value="Sepete Ekle">
                    </div>
                 </div>
                 <!-- 4.ürün -->
@@ -183,7 +195,7 @@
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
-                    <button><a href="#">Sepete Ekle</a></button>
+                    <input type="button" class="button" value="Sepete Ekle">
                    </div>
                 </div>
                 <!-- 5.ürün -->
@@ -194,7 +206,7 @@
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
-                    <button><a href="#">Sepete Ekle</a></button>
+                    <input type="button" class="button" value="Sepete Ekle">
                    </div>
                 </div>
                 <!-- 6.ürün -->
@@ -205,7 +217,7 @@
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
-                    <button><a href="#">Sepete Ekle</a></button>
+                    <input type="button" class="button" value="Sepete Ekle">
                    </div>
                 </div>
 
@@ -217,7 +229,7 @@
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
-                    <button><a href="#">Sepete Ekle</a></button>
+                    <input type="button" class="button" value="Sepete Ekle">
                    </div>
                 </div>
                 <!-- 8.ürün  -->
@@ -228,7 +240,7 @@
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
-                    <button><a href="#">Sepete Ekle</a></button>
+                    <input type="button" class="button" value="Sepete Ekle">
                    </div>
                 </div>
                 <!-- 9.ürün  -->
@@ -239,7 +251,7 @@
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
-                    <button><a href="#">Sepete Ekle</a></button>
+                    <input type="button" class="button" value="Sepete Ekle">
                    </div>
                 </div>
                 <!-- 10.ürün  -->
@@ -250,7 +262,7 @@
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
-                    <button><a href="#">Sepete Ekle</a></button>
+                    <input type="button" class="button" value="Sepete Ekle">
                    </div>
                 </div>
             <!-- 11.ürün  -->
@@ -261,7 +273,7 @@
                 <div class="price">
                     <h4>250 TL</h4>
                 </div>
-                <button><a href="#">Sepete Ekle</a></button>
+                <input type="button" class="button" value="Sepete Ekle">
                </div>
             </div>
             <!-- 12. ürün  -->
@@ -272,7 +284,7 @@
                 <div class="price">
                     <h4>250 TL</h4>
                 </div>
-                <button><a href="#">Sepete Ekle</a></button>
+                <input type="button" class="button" value="Sepete Ekle">
                </div>
             </div>
             <!-- 13.ürün  -->
@@ -283,7 +295,7 @@
                 <div class="price">
                     <h4>250 TL</h4>
                 </div>
-                <button><a href="#">Sepete Ekle</a></button>
+                <input type="button" class="button" value="Sepete Ekle">
                </div>
             </div>
             <!-- 14.ürün  -->
@@ -294,7 +306,7 @@
                 <div class="price">
                     <h4>250 TL</h4>
                 </div>
-                <button><a href="#">Sepete Ekle</a></button>
+                <input type="button" class="button" value="Sepete Ekle">
                </div>
             </div>
             <!-- 15.ürün  -->
@@ -305,7 +317,7 @@
                 <div class="price">
                     <h4>250 TL</h4>
                 </div>
-                <button><a href="#">Sepete Ekle</a></button>
+                <input type="button" class="button" value="Sepete Ekle">
                </div>
             </div>
             
