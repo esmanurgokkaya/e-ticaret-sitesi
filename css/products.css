@@ -86,58 +86,34 @@ section{
 .product button a{
     color: black;
 }
+@media only screen and (max-width: 767px) { 
 
-#icon2 {
-    position: relative;
-  }
-  
-#count {
-    position: absolute;
-    top: -10px;
-    left: 2.3rem;
-    background-color: red; 
-    color: white; 
-    border-radius: 50%;
-    padding: 1px 3px;
-    font-size: 12px;
-  }
-  
-.shopping-basket{
-    display: none;
-    position: absolute;
-    width: 25rem;
-    right: 0rem;
-    top: 3.3rem;
-    padding: 1rem;
-    z-index: 1;
-    background-color: var(--border-color);
-}
+    section{
+        flex-direction: column;
 
-.urun {
-    border-bottom: 1px solid #ddd;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
+    }
+    .filter-container {
+        width: 60%;
+        margin-bottom: 25px;
+        align-self: center;
+    }
+    .products{
+        width: 100%;
+        margin-top: 0;
+        justify-content: center;
+    }
+    .product{
+        width: 52%;
+    }
 }
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+    .filter-container {
+        width: 30%;
+    }
+    .products{
 
-#total-price{
-    font-weight: bold;
-    text-align: right;
-}
+        width: 60%;
+        
+    }
 
-#clear-basket{
-    background-color: #333;
-    color: white;
-    padding: 8px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 20px;
-    display: block;
-}
-.shopping-basket p{
-    margin: 10px;
-    font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-}
+ }
