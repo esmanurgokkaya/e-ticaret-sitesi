@@ -1,67 +1,6 @@
-/* .blink {
-  width: 400px;
-  height: 50px;
-  text-align: center;
-  line-height: 50px;
-  white-space: nowrap; 
-  padding-left: 40%;
+:root{
+  --border-color: #cce7d0;
 }
-
-span {
-  font-size: 25px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: rgb(221, 17, 17);
-  margin: 0 10px;
-  display: inline-block; 
-  animation: blink 0.5s linear infinite;
-}
-
-@keyframes blink {
-  0% { opacity: 0; }
-  50% { opacity: .5; }
-  100% { opacity: 1; }
-}
-
-#menu{
-  height: 908px;
-}
-
-[class*="col-"] {
-  float: left;
-  padding: 2px;
-}
-
-.col-3{
-  width: 25%;
-}
-.col-6{
-  width: 50%;
-  height: 100%;
-}
-
-.col-12{
-  width: 100%;
-  height: 100%;
-}
-
-#resim1 a img{
-  width: 100%;
-  height: 908px;
-  z-index: 1;
-}
-
-#resim2 a img{
-  width: 100%;
-  height: 908px;
-  z-index: 1;
-}
-
-section{
-  overflow: auto;
-} */
-/* body{
-  background-color: rgb(148, 83, 9);
-} */
 .hero{
   background-image: url("/images/bg.jpg");
   height: 80vh;
@@ -73,6 +12,7 @@ section{
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  backdrop-filter: blur(2);
 
 }
 
@@ -120,7 +60,7 @@ section h3{
   margin: 10px 0; 
 
 }
-.product button{
+.product input[class = "button"]{
   text-align: center;
   background: var(--border-color);
   width: 100%;
@@ -128,7 +68,7 @@ section h3{
   border: 1px solid black;
   border-radius: 5px;
 }
-.product button a{
+.product input[class = "button"] a{
   color: black;
 }
 
