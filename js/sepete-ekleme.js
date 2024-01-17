@@ -5,6 +5,7 @@ const shopping = document.getElementById('shopping');
 const eklemeButonlari = document.querySelectorAll('.button');
 const shopIcon = document.getElementById('icon2');
 const shoppingBasket = document.getElementById('shopping-basket');
+const removeButtons = document.querySelectorAll('.button-remove');
 
 const alert = document.createElement("p");
 alert.id="sepet-uyari";
@@ -21,7 +22,7 @@ function sepeteEkle(event) {
     const urunBilgileri = {
     isim: event.target.parentNode.querySelector('.description span').innerText,
     fiyat: event.target.parentNode.querySelector('.price h4').innerText,
-    resim: event.target.parentNode.getElementsByTagName('img').src
+    resim: event.target.parentNode.querySelector('img'),
     };
     // Ürünü sepet dizisine ekle
     sepet.push(urunBilgileri);
@@ -33,6 +34,7 @@ function sepeteEkle(event) {
     <a href="#">${urunBilgileri.isim}</a>
     <a href="#">${urunBilgileri.fiyat}</a>
     <img src="${urunBilgileri.resim}">
+    <input type="button" class="button-remove" value="Sil">
     `;
     alert.remove();
     clearBasket.style.display='block';
@@ -71,12 +73,36 @@ shopIcon.addEventListener('click', () => {
 });
 
 
+removeButtons.forEach((removeButton, index) => {
+  removeButton.addEventListener('click', () => {
+    sepettenUrunuSil(index);
+  });
+});
+
+function sepettenUrunuSil(index) {
+  sepet.splice(index, 1); // index'teki öğeyi kaldır
+  localStorage.setItem('sepet', JSON.stringify(sepet));
+  sepetiGuncelle();
+}
+
+
+
 // Sayfa yüklendiğinde localStorage'de sepet verisi varsa onu al
 document.addEventListener('DOMContentLoaded', () => {
   const localStorageSepet = localStorage.getItem('sepet');
   if (localStorageSepet) {
     sepet = JSON.parse(localStorageSepet);
     sepetiGuncelle();
+    for (const urun of sepet) {
+      const urunDiv = document.createElement('div');
+      urunDiv.classList.add('urun');
+      basketList.appendChild(urunDiv);
+      urunDiv.innerHTML = `
+      <a href="#">${urun.isim}</a>
+      <a href="#">${urun.fiyat}</a>
+      <img src="${urun.resim}">
+      <input type="button" class="button-remove" value="Sil">
+      `;
+    }
   }
 });
-
