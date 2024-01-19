@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.logo{
+    font-family: 'Cinzel Decorative', serif;
+}
+
+header h1 {
+    background-color: rgb(75, 3, 75);
+    color: rgb(223, 127, 211);
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    width: 20%;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: rgb(140, 103, 131);
+    height: 100vh;
+}
+
+section {
+    width: 80%;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: rgb(210, 30, 207);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #a46186;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #685798;
+    color: #fff;
+}
+
+.actions {
+    text-align: right;
+}
+
+.actions button {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#editForm, #addProductForm {
+    display: none;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#editForm label, #addProductForm label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#editForm input, #addProductForm input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#editForm button, #addProductForm button {
+    background-color: #333;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+#editForm button:hover, #addProductForm button:hover {
+    background-color: #d24141;
+}
+
+.dashboard-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.dashboard-item {
+    background-color: rgb(158, 124, 147);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 23%;
+    text-align: center;
+    margin: 5px;
+}
+
+.dashboard-item h3 {
+    margin-top: 0;
+}
+
+.bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    margin-top: 10px;
+    position: relative;
+}
+
+.bar {
+    height: 100%;
+    max-width: 40%;
+    background-color: #4caf50;
+}
+button{
+    text-align: center;
+    background: rgb(223, 189, 218);;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 1px;
+}

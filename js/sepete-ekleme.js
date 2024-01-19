@@ -1,5 +1,4 @@
 const basketList = document.getElementById('basket-list');
-const totalPrice = document.getElementById('total-price');
 const clearBasket = document.getElementById('clear-basket');
 const shopping = document.getElementById('shopping');
 const eklemeButonlari = document.querySelectorAll('.button');

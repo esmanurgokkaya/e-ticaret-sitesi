@@ -1,5 +1,7 @@
 :root{
     --border-color: #cce7d0;
+    --border-color-hover: #cce7d0;
+rgb(194, 232, 199)
 }
 section{
     display: flex;
@@ -38,7 +40,8 @@ section{
   }
   
   .button:hover {
-    background-color: #45a049;
+    background-color: var(--border-color-hover);
+    ;
   }
 .products{
     width: 70%;
@@ -82,6 +85,10 @@ section{
     padding: 5px;
     border: 1px solid black;
     border-radius: 5px;
+}
+
+.product button:hover{
+    background-color: var(--border-color-hover);
 }
 .product button a{
     color: black;
