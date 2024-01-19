@@ -1,5 +1,7 @@
 :root{
   --border-color: #cce7d0;
+  --border-color-hover: #b9ebc0;
+
 }
 .hero{
   background-image: url("/images/bg.jpg");
@@ -23,6 +25,10 @@ section h3{
   margin-top: 50px;
   background-color: bisque;
   padding: 30px;
+}
+.price small{
+  text-decoration: line-through;
+  color: orange;
 }
 
 .products{
@@ -67,6 +73,9 @@ section h3{
   padding: 5px;
   border: 1px solid black;
   border-radius: 5px;
+}
+.product input[class = "button"]:hover{
+  background-color: var(--border-color-hover);
 }
 .product input[class = "button"] a{
   color: black;
