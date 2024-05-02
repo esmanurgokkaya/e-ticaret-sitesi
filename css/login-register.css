@@ -3,6 +3,7 @@ body{
     background-repeat: repeat;
     background-size: cover;
     background-position: unset;
+    height: 100%;
 }
 
 .container2{
@@ -51,6 +52,9 @@ body{
 .text-sci p{
     font-size: 16px;
     margin: 20px 0;
+}
+.social-icons p a,.social-icons p a:visited {
+    color: #e4e4e4;
 }
 .social-icons a i{
     font-size: 22px;
