@@ -11,14 +11,17 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
-
+     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/header-footer.css">
     <link rel="stylesheet" href="css/products.css">
     <link rel="stylesheet" href="css/shopping-cart.css">
+
+   
+    
 </head>
 <body>
-    
+<?php ?>
+
     <header class="header">
         <div class="container discount__panel">
             <marquee direction="left" scrollamount="5">Tüm ürünlerimizde geçerli sepette %10 indirim var. Bu fırsatı kaçırma!</marquee>
@@ -33,16 +36,16 @@
                 <ul>
                   <li><a href="login-register.html" id="icon1" class="logging" title="Giriş Yap / Kayıt Ol"><i class="fa-regular fa-user"></i></a></li>
                   <li>
-                    <a href="#"  class="shopping" title="Sepete Ekle">
-                    <i id="icon2" class="fa-solid fa-cart-shopping"></i>
-                    <span id="count">0</span></a>
-                    <div id="shopping-basket" class="shopping-basket">
-                      <div id="basket-list"></div>
-                      <div id="total-price"></div>
-                      <button id="clear-basket">Sepeti Temizle</button>
-                    </div>
-                    
-                </li>
+                      <a href="#"  class="shopping" title="Sepete Ekle">
+                      <i id="icon2" class="fa-solid fa-cart-shopping"></i>
+                      <span id="count">0</span></a>
+                      <div id="shopping-basket" class="shopping-basket">
+                        <div id="basket-list"></div>
+                        <div id="total-price"></div>
+                        <button id="clear-basket">Sepeti Temizle</button>
+                      </div>
+                      
+                  </li>
                 </ul>
             </div>
         </div>
@@ -96,7 +99,7 @@
               <label for="color">Kumaş Tipi</label>
               <input type="text" id="color" name="color">
         
-              <button type="submit"  class="button">Filtrele</button>
+              <button type="submit" class="button">Filtrele</button>
             </form>
           </div>
         
@@ -104,165 +107,152 @@
             <div class="products">
                 <!-- 1.ürün -->
                 <div class="product">
-                    <img src="images/ust giyim/bluz1.webp" alt="">
-                   <div class="description">
+                    <img src="images/dis giyim/disGiyim1.webp" alt="">
+                    <div class="description">
                     <span>Elbise takım </span>
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
                     <input type="button" class="button" value="Sepete Ekle">
-
                    </div>
         
                 </div>
                 <!-- 2.ürün -->
                 <div class="product">
-                    <img src="images/ust giyim/bluz2.webp" alt="">
+                    <img src="images/dis giyim/disGiyim10.webp" alt="">
                    <div class="description">
                     <span>Elbise takım </span>
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
                     <input type="button" class="button" value="Sepete Ekle">
-
                    </div>
                 </div>
                 <!-- 3.ürün -->
                 <div class="product">
-                    <img src="images/ust giyim/gomlek1.webp" alt="">
+                    <img src="images/dis giyim/disGiyim11.webp" alt="">
                    <div class="description">
                     <span>Elbise takım </span>
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
                     <input type="button" class="button" value="Sepete Ekle">
-
                    </div>
                 </div>
                 <!-- 4.ürün -->
                 <div class="product">
-                    <img src="images/ust giyim/gomlek2.webp" alt="">
+                    <img src="images/dis giyim/disGiyim12.webp" alt="">
                    <div class="description">
                     <span>Elbise takım </span>
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
                     <input type="button" class="button" value="Sepete Ekle">
-
                    </div>
                 </div>
                 <!-- 5.ürün -->
                 <div class="product">
-                    <img src="images/ust giyim/gomlek3.webp" alt="">
+                    <img src="images/dis giyim/disGiyim13.webp" alt="">
                    <div class="description">
                     <span>Elbise takım </span>
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
                     <input type="button" class="button" value="Sepete Ekle">
-
                    </div>
                 </div>
                 <!-- 6.ürün -->
                 <div class="product">
-                    <img src="images/ust giyim/gomlek4.webp" alt="">
+                    <img src="images/dis giyim/disGiyim14.webp" alt="">
                    <div class="description">
                     <span>Elbise takım </span>
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
                     <input type="button" class="button" value="Sepete Ekle">
-
                    </div>
                 </div>
 
                 <!-- 7.ürün  -->
                 <div class="product">
-                    <img src="images/ust giyim/hirka1.webp" alt="">
+                    <img src="images/dis giyim/disGiyim9.webp" alt="">
                    <div class="description">
                     <span>Elbise takım </span>
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
                     <input type="button" class="button" value="Sepete Ekle">
-
                    </div>
                 </div>
                 <!-- 8.ürün  -->
                 <div class="product">
-                    <img src="images/ust giyim/hirka2.webp" alt="">
+                    <img src="images/dis giyim/disGiyim16.webp" alt="">
                    <div class="description">
                     <span>Elbise takım </span>
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
                     <input type="button" class="button" value="Sepete Ekle">
-
                    </div>
                 </div>
                 <!-- 9.ürün  -->
                 <div class="product">
-                    <img src="images/ust giyim/hirka3.webp" alt="">
+                    <img src="images/dis giyim/disGiyim2.webp" alt="">
                    <div class="description">
                     <span>Elbise takım </span>
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
                     <input type="button" class="button" value="Sepete Ekle">
-
                    </div>
                 </div>
                 <!-- 10.ürün  -->
                 <div class="product">
-                    <img src="images/ust giyim/hirka4.webp" alt="">
+                    <img src="images/dis giyim/disGiyim3.webp" alt="">
                    <div class="description">
                     <span>Elbise takım </span>
                     <div class="price">
                         <h4>250 TL</h4>
                     </div>
                     <input type="button" class="button" value="Sepete Ekle">
-
                    </div>
                 </div>
             <!-- 11.ürün  -->
             <div class="product">
-                <img src="images/ust giyim/hirka5.webp" alt="">
+                <img src="images/dis giyim/disGiyim4.webp" alt="">
                <div class="description">
                 <span>Elbise takım </span>
                 <div class="price">
                     <h4>250 TL</h4>
                 </div>
                 <input type="button" class="button" value="Sepete Ekle">
-
                </div>
             </div>
             <!-- 12. ürün  -->
             <div class="product">
-                <img src="images/ust giyim/hirka6.webp" alt="">
+                <img src="images/dis giyim/disGiyim5.webp" alt="">
                <div class="description">
                 <span>Elbise takım </span>
                 <div class="price">
                     <h4>250 TL</h4>
                 </div>
                 <input type="button" class="button" value="Sepete Ekle">
-
                </div>
             </div>
             <!-- 13.ürün  -->
             <div class="product">
-                <img src="images/ust giyim/kazak1.webp" alt="">
+                <img src="images/dis giyim/disGiyim6.webp" alt="">
                <div class="description">
                 <span>Elbise takım </span>
                 <div class="price">
                     <h4>250 TL</h4>
                 </div>
                 <input type="button" class="button" value="Sepete Ekle">
-
                </div>
             </div>
             <!-- 14.ürün  -->
             <div class="product">
-                <img src="images/ust giyim/kazak2.webp" alt="">
+                <img src="images/dis giyim/disGiyim7.webp" alt="">
                <div class="description">
                 <span>Elbise takım </span>
                 <div class="price">
@@ -273,19 +263,18 @@
             </div>
             <!-- 15.ürün  -->
             <div class="product">
-                <img src="images/ust giyim/elbise9.webp" alt="">
+                <img src="images/dis giyim/disGiyim8.webp" alt="">
                <div class="description">
                 <span>Elbise takım </span>
                 <div class="price">
                     <h4>250 TL</h4>
-                  </div>
-                  <input type="button" class="button" value="Sepete Ekle">
-                 </div>
+                </div>
+                <input type="button" class="button" value="Sepete Ekle">
+               </div>
             </div>
             
             </div>
         </section>
-
         <footer class="footer">
           <div class="first-box">
             <p class="foot-baslik">Hakkımızda</p>

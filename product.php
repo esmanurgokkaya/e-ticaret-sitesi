@@ -100,7 +100,7 @@
       <p><a href="#"><i class="fa-brands fa-whatsapp"></i>     WhatsApp</a></p>
     </div>
    
-    
+    <?php ?>
 </footer>
 <script src="js/sepete-ekleme.js" defer></script>
 </body>
