@@ -14,7 +14,7 @@
     <header>
         <h1 class="logo">ZEE</h1>
     </header>
-
+    <?php ?>
     <nav>
         <ul>
             <li><a href="ust-giyim.html" onclick="showCategory('dresses')">Üst Giyim</a></li>

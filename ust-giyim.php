@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/shopping-cart.css">
 </head>
 <body>
-    
+<?php ?>
     <header class="header">
         <div class="container discount__panel">
             <marquee direction="left" scrollamount="5">Tüm ürünlerimizde geçerli sepette %10 indirim var. Bu fırsatı kaçırma!</marquee>
