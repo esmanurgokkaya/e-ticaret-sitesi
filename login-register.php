@@ -63,7 +63,7 @@
                 <div class="input-box">
                   <span class="icon"><i class="fa-solid fa-user"></i></span>
                   <input type="text" id="name" required>
-                  <label for="name">Name</label>
+                  <label for="name">Isim</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-envelope"></i></span>
