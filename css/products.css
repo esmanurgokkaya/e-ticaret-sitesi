@@ -1,12 +1,12 @@
 :root{
     --border-color: #cce7d0;
     --border-color-hover: #cce7d0;
-rgb(194, 232, 199)
 }
 section{
     display: flex;
     justify-content: space-between;
 }
+
 .filter-container {
     width: 20%;
     padding: 20px;
