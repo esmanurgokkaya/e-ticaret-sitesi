@@ -58,33 +58,6 @@
                 </div>
             </form>
           </div>
-          <div class="form-box register">
-            <form action="#">
-                <h2>Üye Ol</h2>
-                <div class="input-box">
-                  <span class="icon"><i class="fa-solid fa-user"></i></span>
-                  <input type="text" id="name" required>
-                  <label for="name">Isim</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                    <input type="email" id="email" required>
-                    <label for="email">E-mail</label>
-                </div>
-                <div class="input-box">
-                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password" id="pass" required>
-                    <label for="pass">Şifre</label>
-                </div>
-                <div class="remember-forgot">
-                    <label for="rembr-forg"><input type="checkbox" id="rembr-forg"><span>Üyelik koşullarını</span> kabul ediyorum.</label>
-                </div>
-                <input type="button" class="btn" value="Üye Ol">
-                <div class="login-register">
-                    <p>Zaten bir hesabın var mı? <a href="#" class="login-link">Giriş Yap</a></p>
-                </div>
-            </form>
-        </div>
         </div>
     </div>
   </body>
