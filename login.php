@@ -36,11 +36,11 @@
         </div>
         <div class="logreg-box">
           <div class="form-box login">
-            <form action="#">
+            <form action="php/loginUser.php" method="post">
                 <h2>Giriş Yap</h2>
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" name="email" required>
                     <label for="email">E-mail</label>
                 </div>
                 <div class="input-box" id="pass-box">
@@ -55,7 +55,7 @@
                     <label for="rembr-forg"><input type="checkbox" id="rembr-forg">Beni Hatırla</label>
                     <a href="admin.html">Şifremi unuttum?</a>
                 </div>
-                <input type="button" class="btn" value="Giriş Yap">
+                <button type="submit" name="loginButton" class="btn">Giriş Yap</button>
                 <div class="login-register">
                     <p>Henüz Hesabın Yok Mu? <a href="register.php" class="register-link">Üye Ol</a></p>
                 </div>

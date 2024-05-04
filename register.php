@@ -58,7 +58,7 @@
                     <label for="pass">Şifre</label>
                 </div>
                 <div class="remember-forgot">
-                    <label for="rembr-forg"><input type="checkbox" id="rembr-forg"><span>Üyelik koşullarını</span> kabul ediyorum.</label>
+                    <label for="rembr-forg"><input type="checkbox" name="check" id="rembr-forg"><span>Üyelik koşullarını</span> kabul ediyorum.</label>
                 </div>
                 <button type="submit" class="btn" name="registerButton">Üye Ol</button>
 
