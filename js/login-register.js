@@ -1,11 +1,20 @@
-const logregBox = document.querySelector('.logreg-box');
-const loginLink = document.querySelector('.login-link');
-const registerLink = document.querySelector('.register-link');
+const pass = document.querySelector(".input-box input[type='password']");
+toggleBtn = document.querySelector("#pass-box .icon");
 
-registerLink.addEventListener('click',()=>{
-    logregBox.classList.add('active');
-});
+const hide = document.getElementById("hide");
+const show = document.getElementById("show");
 
-loginLink.addEventListener('click',()=>{
-    logregBox.classList.remove('active');
-});
+toggleBtn.onclick = () =>{
+    if(pass.type == "password"){
+        pass.type = "text";
+        toggleBtn.classList.add("active");
+        show.style.display="inline-block";
+        hide.style.display="none";
+    }
+    else{
+        pass.type = "password";
+        toggleBtn.classList.remove("active");
+        hide.style.display="inline-block";
+        show.style.display="none";
+    }
+}

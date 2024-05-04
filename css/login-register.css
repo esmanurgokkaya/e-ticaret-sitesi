@@ -85,13 +85,13 @@ body{
   transition-delay: 0s;
 }
 .logreg-box .form-box.register{
-  transform: translateX(600px);
+  transform: translateX(0);
   transition: transform .6s ease;
-  transition-delay: 0s;
+  transition-delay: .7s;
 }
 .logreg-box.active .form-box.register{
-  transform: translateX(0);
-  transition-delay: .7s;
+  transform: translateX(600px);
+  transition-delay: 0s;
 }
 
 .form-box h2{

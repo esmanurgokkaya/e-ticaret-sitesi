@@ -35,30 +35,39 @@
             </div>
         </div>
         <div class="logreg-box">
-          <div class="form-box login">
-            <form action="#">
-                <h2>Giriş Yap</h2>
+          <div class="form-box register">
+            <form action="php/userAdd.php" method="post">
+
+                <h2>Üye Ol</h2>
                 <div class="input-box">
-                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                    <input type="email" id="email" required>
-                    <label for="email">E-mail</label>
+                  <span class="icon"><i class="fa-solid fa-user"></i></span>
+                  <input type="text" id="name" name="name" required>
+                  <label for="name">Isim</label>
                 </div>
                 <div class="input-box">
-                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
-                    <input type="password" id="pass" required>
+                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">E-mail</label>
+                </div>
+                <div class="input-box" id="pass-box">
+                    <span class="icon">
+                        <i class="fa-regular fa-eye" style="display: none;" id="show"></i>
+                        <i class="fa-regular fa-eye-slash" id="hide"></i>
+                    </span>
+                    <input type="password" id="pass" name="pass" required>
                     <label for="pass">Şifre</label>
                 </div>
                 <div class="remember-forgot">
-                    <label for="rembr-forg"><input type="checkbox" id="rembr-forg">Beni Hatırla</label>
-                    <a href="admin.html">Şifremi unuttum?</a>
+                    <label for="rembr-forg"><input type="checkbox" id="rembr-forg"><span>Üyelik koşullarını</span> kabul ediyorum.</label>
                 </div>
-                <input type="button" class="btn" value="Giriş Yap">
+                <button type="submit" class="btn" name="registerButton">Üye Ol</button>
+
                 <div class="login-register">
-                    <p>Henüz Hesabın Yok Mu? <a href="#" class="register-link">Üye Ol</a></p>
+                    <p>Zaten bir hesabın var mı? <a href="login.php" class="login-link">Giriş Yap</a></p>
                 </div>
             </form>
-          </div>
+        </div>
         </div>
     </div>
   </body>
-</html>
+
