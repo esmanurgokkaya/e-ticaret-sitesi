@@ -61,7 +61,7 @@
     </header>
 
 
-        <section >
+        <section  >
 
           <div class="filter-container">
             <form id="filter-form">

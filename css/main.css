@@ -4,7 +4,7 @@
 
 }
 .hero{
-  background-image: url("/images/bg.jpg");
+  background-image: url("../images/bg.jpg");
   height: 80vh;
   width: 100%;
   background-size: cover;
