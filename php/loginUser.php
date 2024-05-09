@@ -24,6 +24,7 @@ if(isset($_POST['loginButton'])){
         if ($pass==$row['password']) {
             // Giriş başarılı, kullanıcıyı yönlendir
             $_SESSION['username'] = $row['username'];
+            $_SESSION['user_id'] = $row['user_id'];
             header("Location: ../index.php");
             exit();
         } else {
