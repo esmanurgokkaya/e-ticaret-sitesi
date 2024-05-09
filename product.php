@@ -1,3 +1,9 @@
+<?php 
+session_start();
+$user_id = $_SESSION['user_id'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +17,12 @@
 
 <body>
 <?php include 'header.php';?>
+<?php require 'php/config.php' ?>
+<!-- <?php
+// if(isset($_GET[''])){
+//     $urun_id = $_GET[''];
+// }
+?> -->
   <!-- php ile urlden id  al slectten kontrol ett ve ekrana ürünü yazdır  -->
   <main>
     <section class="main-wrap">
@@ -74,6 +86,7 @@
       </div>
 
     </section>
+<!-- yorum ekleme alanı  -->
 
     <section class="comments">
       <div class="comment-header ">
@@ -84,86 +97,59 @@
       </div>
       <div class="comment-body">
         <div class="add-comment">
-          <form action="">
+
+          <form action="php/comment.php" method="post">
             <div class="star-widget">
-              <input type="radio" name="rate" id="rate-5">
+              <input type="radio" name="rate" id="rate-5" value="5">
               <label for="rate-5" class="fas fa-star"></label>
 
-              <input type="radio" name="rate" id="rate-4">
+              <input type="radio" name="rate" id="rate-4" value="4">
               <label for="rate-4" class="fas fa-star"></label>
 
-              <input type="radio" name="rate" id="rate-3">
+              <input type="radio" name="rate" id="rate-3" value="3">
               <label for="rate-3" class="fas fa-star"></label>
 
-              <input type="radio" name="rate" id="rate-2">
+              <input type="radio" name="rate" id="rate-2" value="2">
               <label for="rate-2" class="fas fa-star"></label>
 
-              <input type="radio" name="rate" id="rate-1">
+              <input type="radio" name="rate" id="rate-1" value="1">
               <label for="rate-1" class="fas fa-star"></label>
             </div>
             <div class="textarea">
               <textarea name="comment" cols="40" placeholder="YORUM EKLE"></textarea>
             </div>
-
+            <input type="text" name="user_id" value="<?php echo $user_id; ?>" hidden class="user_id"/>
             <div class="btn">
-              <button type="submit">Gönder</button>
+              <button type="submit" name="submit">Gönder</button>
             </div>
           </form>
 
         </div>
+<?php
+$sql= "SELECT puan, yorum, tarih FROM yorum" ;
+$result = mysqli_query($conn, $sql);
+if (mysqli_num_rows($result) > 0) {
+  while ($row = mysqli_fetch_assoc($result)) {
+?>
+        <div class="comment-box">
+          <div class="star">
+      <?php while($row['puan']>0){?>      
+            <i class="fa fa-star"></i> 
+            <?php
+           $row['puan']--;
+            }    ?>
+           
+          </div>
+          <div class="comment-detail">
+            <span><?php echo 'esma '?></span>
+            <span>|</span>
+            <span><?php echo  $row[ 'tarih' ] ?></span>
+          </div>
+          <p><?php echo   $row["yorum"] ?></p>
+        </div>
 
-        <div class="comment-box">
-          <div class="star">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-          <div class="comment-detail">
-            <span>esma</span>
-            <span>|</span>
-            <span>3 mart 2024</span>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam consectetur eaque debitis laudantium, quis ipsa doloribus blanditiis atque illo aliquid quibusdam deleniti nam, dolorem porro veniam odit expedita? Nesciunt, culpa.</p>
-        </div>
-        <div class="comment-box">
-          <div class="star">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-          <div class="comment-detail">
-            <span>esma</span>
-            <span>|</span>
-            <span>3 mart 2024</span>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam consectetur eaque debitis laudantium, quis ipsa doloribus blanditiis atque illo aliquid quibusdam deleniti nam, dolorem porro veniam odit expedita? Nesciunt, culpa.</p>
-        </div>
-        <div class="comment-box">
-          <div class="star">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-          <div class="comment-detail">
-            <span>esma</span>
-            <span>|</span>
-            <span>3 mart 2024</span>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam consectetur eaque debitis laudantium, quis ipsa doloribus blanditiis atque illo aliquid quibusdam deleniti nam, dolorem porro veniam odit expedita? Nesciunt, culpa.</p>
-        </div>
-        <div class="comment-box">
-          <div class="star">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-          <div class="comment-detail">
-            <span>esma</span>
-            <span>|</span>
-            <span>3 mart 2024</span>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam consectetur eaque debitis laudantium, quis ipsa doloribus blanditiis atque illo aliquid quibusdam deleniti nam, dolorem porro veniam odit expedita? Nesciunt, culpa.</p>
-        </div>
+<?php  } 
+} ?>    
 
 
       </div>
