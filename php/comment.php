@@ -1,14 +1,15 @@
 <?php
+session_start();
+$user_id = $_SESSION['user_id'];
 require 'config.php';
 
 if(isset($_POST['submit'])){
-    $star = $_POST['rate'];
-    $comment = $_POST['comment'];
-    $date = date('Y-m-d H:i:s');
-    // $username=$_POST['user_id'];
+    $star =mysqli_real_escape_string($conn, $_POST['rate']);
+    $comment = mysqli_real_escape_string($conn,$_POST['comment']);
+    // $user_id=mysqli_real_escape_string($conn, $_POST['user_id']);         
     // echo $username ;
-
-    $sql = "INSERT INTO yorum (urun_id,user_id,puan,yorum)VALUES (1,1,'{$star}', '{$comment}' )";
+ $date = date('Y-m-d H:i:s');
+    $sql = "INSERT INTO yorum (urun_id,user_id,puan,yorum)VALUES (1,'$user_id', '$star', '$comment' )";
 
     if(mysqli_query($conn,$sql)){
         header("Location: ../product.php");
