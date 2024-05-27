@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include 'config.php';
 
 if(isset($_POST['loginButton'])){
@@ -23,6 +21,7 @@ if(isset($_POST['loginButton'])){
         $row = mysqli_fetch_assoc($result);
         if ($pass==$row['password']) {
             // Giriş başarılı, kullanıcıyı yönlendir
+            session_start();
             $_SESSION['username'] = $row['username'];
             $_SESSION['user_id'] = $row['user_id'];
             header("Location: ../index.php");
@@ -32,7 +31,7 @@ if(isset($_POST['loginButton'])){
         }
     } else {
         echo "Eposta kayitli degil. Uye olmayi dene!";
-    
+        header("Location: ../register.php");
     }
 
 }

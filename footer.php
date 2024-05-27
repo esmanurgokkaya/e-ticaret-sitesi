@@ -7,7 +7,7 @@
         <div class="first-box">
         <p class="foot-baslik">Müşteri Hizmetleri</p>
         <p></p><a href="#">Kargo ve Teslimat Koşulları</a></p>
-    <p> <a href="#">Üyelik Sözleşmesi</a></p>
+        <p> <a href="#">Üyelik Sözleşmesi</a></p>
         <p> <a href="#">Satış Sözleşmesi</a></p>
         <p><a href="#">İade ve Değişim Koşulları</a></p>
         </div>

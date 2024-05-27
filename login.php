@@ -21,10 +21,7 @@
 
   </head>
   <body>
-<<<<<<< HEAD
     <?php ?>
-=======
->>>>>>> 23b433d59a81df5b9153f8b578f927422244bca2
     <div class="container2">
         <div class="content">
             <h1 class="logo">ZEE</h1>
@@ -39,19 +36,11 @@
         </div>
         <div class="logreg-box">
           <div class="form-box login">
-<<<<<<< HEAD
             <form action="php/loginUser.php" method="post">
                 <h2>Giriş Yap</h2>
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-envelope"></i></span>
                     <input type="email" id="email" name="email" required>
-=======
-            <form action="login.php" method="post">
-                <h2>Giriş Yap</h2>
-                <div class="input-box">
-                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-                    <input type="email" id="email" required>
->>>>>>> 23b433d59a81df5b9153f8b578f927422244bca2
                     <label for="email">E-mail</label>
                 </div>
                 <div class="input-box" id="pass-box">
@@ -59,33 +48,19 @@
                         <i class="fa-regular fa-eye" style="display: none;" id="show"></i>
                         <i class="fa-regular fa-eye-slash" id="hide"></i>
                     </span>
-<<<<<<< HEAD
                     <input type="password" id="pass" name="pass" required>
-=======
-                    <input type="password" id="pass" required>
->>>>>>> 23b433d59a81df5b9153f8b578f927422244bca2
                     <label for="pass">Şifre</label>
                 </div>
                 <div class="remember-forgot">
                     <label for="rembr-forg"><input type="checkbox" id="rembr-forg">Beni Hatırla</label>
                     <a href="admin.html">Şifremi unuttum?</a>
                 </div>
-<<<<<<< HEAD
                 <button type="submit" name="loginButton" class="btn">Giriş Yap</button>
-=======
-                <input type="button" class="btn" value="Giriş Yap">
->>>>>>> 23b433d59a81df5b9153f8b578f927422244bca2
                 <div class="login-register">
                     <p>Henüz Hesabın Yok Mu? <a href="register.php" class="register-link">Üye Ol</a></p>
                 </div>
             </form>
-<<<<<<< HEAD
           </div>
-=======
-            </div>
-            </form>
-        </div>
->>>>>>> 23b433d59a81df5b9153f8b578f927422244bca2
         </div>
     </div>
   </body>
