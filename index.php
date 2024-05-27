@@ -17,9 +17,50 @@ $username = $_SESSION['username'];
 
   </head>
   <body>
+<<<<<<< HEAD:index.php
   <?php include 'header.php';
   
     echo "<h1 style='color:green;padding:10px;text-align:center;'>Hosgeldin ".$username."</h1>";?>
+=======
+    <header class="header">
+        <div class="container discount__panel">
+            <marquee direction="left" scrollamount="5">Tüm ürünlerimizde geçerli sepette %10 indirim var. Bu fırsatı kaçırma!</marquee>
+        </div>
+        <div class="container header__inner">
+            <h1 class="logo">ZEE</h1>
+            <form action="" method="get" id="arama" class="search">
+              <input type="text" placeholder="Ürün Ara">
+              <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <div class="icons"> 
+                <ul>
+                  <li><a href="login.php" id="icon1" class="logging" title="Giriş Yap / Kayıt Ol"><i class="fa-regular fa-user"></i></a></li>
+                  <li>
+                    <a href="#"  class="shopping" title="Sepete Ekle">
+                    <i id="icon2" class="fa-solid fa-cart-shopping"></i>
+                    <span id="count">0</span></a>
+                    <div id="shopping-basket" class="shopping-basket">
+                      <div id="basket-list"></div>
+                      <div id="total-price"></div>
+                      <button id="clear-basket">Sepeti Temizle</button>
+                    </div>
+                    
+                </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container categories">
+          <ul class="nav__links">
+              <li class="nav__item"><a href="#yeni">YENİ</a></li>
+              <li class="nav__item"><a href="dis-giyim.html">DIŞ GİYİM</a></li>
+              <li class="nav__item"><a href="alt-giyim.html">ALT GİYİM</a></li>
+              <li class="nav__item"><a href="ust-giyim.html">ÜST GİYİM</a></li>
+              <li class="nav__item"><a href="#indirim">İNDİRİMLİ ÜRÜNLER</a></li>
+          </ul>
+      </div>
+    </header>
+
+>>>>>>> 23b433d59a81df5b9153f8b578f927422244bca2:index.html
     <section class="hero">
     </section>
 <section>
