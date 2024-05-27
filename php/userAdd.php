@@ -1,6 +1,4 @@
 <?php 
-session_start();
-
 include 'config.php';
 
 if(isset($_POST['registerButton'])){
@@ -19,18 +17,21 @@ if(isset($_POST['registerButton'])){
         echo "Eposta zaten kullanilmis. Giris yapmayi dene!";
     } else {
         if(isset($_POST['check'])){
-            $sql = "INSERT INTO users( username, email, password) VALUES (?, ?, ?)";
+            // Şifreyi hashle
+            $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
+            
+            // SQL sorgusunu hazırla
+            $sql = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
             $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, "sss", $name, $email, $pass);
+            mysqli_stmt_bind_param($stmt, "sss", $name, $email, $hashedPass);
             mysqli_stmt_execute($stmt);
+
+            session_start();
             header('Location: ../login.php');
             exit();
-        }else{
+        } else {
             echo 'Sozlesmeler kabul edilmeli!';
         }
     }
-    
-    
 }
-
 ?>

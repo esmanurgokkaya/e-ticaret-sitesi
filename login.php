@@ -21,7 +21,6 @@
 
   </head>
   <body>
-    <?php ?>
     <div class="container2">
         <div class="content">
             <h1 class="logo">ZEE</h1>
