@@ -10,18 +10,17 @@ if (isset($_POST['update_profile'])) {
     $dob_month = $_POST['dob_month'];
     $dob_year = $_POST['dob_year'];
 
-    // Doğum tarihini birleştirme
-    $dob = "$dob_year-$dob_month-$dob_day";
-
     // SQL sorgusu
-    $sql = "UPDATE users SET username= ?, email = ?, dog_day = ?, phone=? WHERE user_id = ?";
+    $sql = "UPDATE users SET username= ?, email = ?, dob_day = ?,dob_month=?, dob_year=? phone=? WHERE user_id = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssi", $name, $email, $dob, $phone, $_SESSION['user_id']);
+    $stmt->bind_param("ssssssi", $name, $email, $dob_day, $dob_month,$dob_year, $phone, $_SESSION['user_id']);
     
     if ($stmt->execute()) {
-        echo "Profil güncellendi.";
+        $succMes = "Profil güncellendi.";
+        header("Location: ../kullaniciBilgilerim.php?succMes=" . urlencode($succMes));
     } else {
-        echo "Bir hata oluştu.";
+        $error = "Bir hata oluştu.";
+        header("Location: ../kullaniciBilgilerim.php?error=" . urlencode($error));
     }
 }
 ?>

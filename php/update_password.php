@@ -14,7 +14,7 @@ if (isset($_POST['update_password'])) {
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
-    
+
     // Mevcut şifreyi doğrulama
     if (password_verify($current_password, $row['password'])) {
         if ($new_password === $confirm_password) {
@@ -23,25 +23,23 @@ if (isset($_POST['update_password'])) {
             $sql = "UPDATE users SET password = ? WHERE user_id = ?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("si", $hashed_password, $_SESSION['user_id']);
-            
-                        if ($stmt->execute()) {
+
+            if ($stmt->execute()) {
                 // Şifre başarıyla güncellendi
-                echo "Şifre başarıyla güncellendi.";
+                $succMes = "Şifre başarıyla güncellendi.";
+                header("Location: ../kullaniciBilgilerim.php?succMes=" . urlencode($succMes));
             } else {
-                // Veritabanında bir hata oluştu
-                echo "Şifre güncellenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.";
+                $error = "Bir hata oluştu.Daha sonra yeniden deneyin!";
+                header("Location: ../kullaniciBilgilerim.php?error=" . urlencode($error));
             }
         } else {
             // Yeni şifre ve onaylanan şifre uyuşmuyor
-            echo "Yeni şifre ve onaylanan şifre uyuşmuyor.";
+            $error = "Yeni şifre ve tekrarlanan şifre uyuşmuyor.";
+            header("Location: ../kullaniciBilgilerim.php?error=" . urlencode($error));
         }
     } else {
         // Mevcut şifre yanlış
-        echo "Mevcut şifre yanlış.";
+        $error = "Mevcut şifre yanlış.";
+        header("Location: ../kullaniciBilgilerim.php?error=" . urlencode($error));
     }
-} else {
-    // Form submit edilmediği için bu sayfaya erişilemez
-    header("Location: error.php"); // Hata sayfasına yönlendirilebilir
-    exit;
 }
-

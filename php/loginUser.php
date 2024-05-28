@@ -1,6 +1,6 @@
 <?php
 include 'config.php';
-
+session_start();
 if (isset($_POST['loginButton'])) {
     $email = $_POST['email'];
     $pass = $_POST['pass'];
@@ -16,16 +16,17 @@ if (isset($_POST['loginButton'])) {
         $row = $result->fetch_assoc();
         if (password_verify($pass, $row['password'])) {
             // Giriş başarılı, kullanıcıyı yönlendir
-            session_start();
+            
             $_SESSION['username'] = $row['username'];
             $_SESSION['user_id'] = $row['user_id'];
             header("Location: ../index.php");
             exit();
         } else {
-            echo "Hatalı şifre!";
+            $error = "Hatalı şifre.";
+            header("Location: ../login.php?error=" . urlencode($error));
         }
     } else {
-        echo "E-posta kayıtlı değil. Üye olmayı deneyin!";
+        $error = "E-posta kayıtlı değil. Üye olmayı deneyin!";
+        header("Location: ../login.php?error=" . urlencode($error));
     }
 }
-?>
