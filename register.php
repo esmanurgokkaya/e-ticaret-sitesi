@@ -35,9 +35,15 @@
             </div>
         </div>
         <div class="logreg-box">
+<<<<<<< HEAD
+<<<<<<<< HEAD:register.php
           <div class="form-box register">
             <form action="php/userAdd.php" method="post">
 
+=======
+          <div class="form-box register">
+            <form action="#">
+>>>>>>> 23b433d59a81df5b9153f8b578f927422244bca2
                 <h2>Üye Ol</h2>
                 <div class="input-box">
                   <span class="icon"><i class="fa-solid fa-user"></i></span>
@@ -47,6 +53,17 @@
                 <div class="input-box">
                     <span class="icon"><i class="fa-solid fa-envelope"></i></span>
                     <input type="email" id="email" name="email" required>
+<<<<<<< HEAD
+========
+          <div class="form-box login">
+            <form action="login.php" method="post">
+                <h2>Giriş Yap</h2>
+                <div class="input-box">
+                    <span class="icon"><i class="fa-solid fa-envelope"></i></span>
+                    <input type="email" id="email" required>
+>>>>>>>> 23b433d59a81df5b9153f8b578f927422244bca2:login-register.html
+=======
+>>>>>>> 23b433d59a81df5b9153f8b578f927422244bca2
                     <label for="email">E-mail</label>
                 </div>
                 <div class="input-box" id="pass-box">
@@ -54,14 +71,51 @@
                         <i class="fa-regular fa-eye" style="display: none;" id="show"></i>
                         <i class="fa-regular fa-eye-slash" id="hide"></i>
                     </span>
+<<<<<<< HEAD
+<<<<<<<< HEAD:register.php
+=======
+>>>>>>> 23b433d59a81df5b9153f8b578f927422244bca2
                     <input type="password" id="pass" name="pass" required>
                     <label for="pass">Şifre</label>
                 </div>
                 <div class="remember-forgot">
+<<<<<<< HEAD
                     <label for="rembr-forg"><input type="checkbox" name="check" id="rembr-forg"><span>Üyelik koşullarını</span> kabul ediyorum.</label>
                 </div>
                 <button type="submit" class="btn" name="registerButton">Üye Ol</button>
 
+                <div class="login-register">
+                    <p>Zaten bir hesabın var mı? <a href="login.php" class="login-link">Giriş Yap</a></p>
+                </div>
+========
+                    <input type="password" id="pass" required>
+                    <label for="pass">Şifre</label>
+                </div>
+                <div class="remember-forgot">
+                    <label for="rembr-forg"><input type="checkbox" id="rembr-forg">Beni Hatırla</label>
+                    <a href="admin.html">Şifremi unuttum?</a>
+                </div>
+                <input type="button" class="btn" value="Giriş Yap">
+                <div class="login-register">
+                    <p>Henüz Hesabın Yok Mu? <a href="register.php" class="register-link">Üye Ol</a></p>
+                </div>
+            </form>
+<<<<<<< Updated upstream:login-register.html
+            </div>
+>>>>>>>> 23b433d59a81df5b9153f8b578f927422244bca2:login-register.html
+            </form>
+        </div>
+=======
+          </div>  
+>>>>>>> Stashed changes:login-register.php
+        </div>
+    </div>
+  </body>
+
+=======
+                    <label for="rembr-forg"><input type="checkbox" id="rembr-forg"><span>Üyelik koşullarını</span> kabul ediyorum.</label>
+                </div>
+                <input type="button" class="btn" name="registerButton" value="Üye Ol">
                 <div class="login-register">
                     <p>Zaten bir hesabın var mı? <a href="login.php" class="login-link">Giriş Yap</a></p>
                 </div>
@@ -70,4 +124,5 @@
         </div>
     </div>
   </body>
-
+</html>
+>>>>>>> 23b433d59a81df5b9153f8b578f927422244bca2
