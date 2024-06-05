@@ -1,7 +1,6 @@
 <?php 
-session_start();
-
 include 'config.php';
+
 
 if(isset($_POST['registerButton'])){
     $name = $_POST['name'];
@@ -16,21 +15,26 @@ if(isset($_POST['registerButton'])){
 
     // E-posta adresi veritabanında var mı yok mu kontrol et
     if ($result->num_rows > 0) {
-        echo "Eposta zaten kullanilmis. Giris yapmayi dene!";
+        $error = "Eposta zaten kullanilmis. Giris yapmayi dene!";
+        header("Location: ../register.php?error=" . urlencode($error));
     } else {
         if(isset($_POST['check'])){
-            $sql = "INSERT INTO users( username, email, password) VALUES (?, ?, ?)";
+            // Şifreyi hashle
+            $hashedPass = password_hash($pass, PASSWORD_DEFAULT);
+            
+            // SQL sorgusunu hazırla
+            $sql = "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
             $stmt = mysqli_prepare($conn, $sql);
-            mysqli_stmt_bind_param($stmt, "sss", $name, $email, $pass);
+            mysqli_stmt_bind_param($stmt, "sss", $name, $email, $hashedPass);
             mysqli_stmt_execute($stmt);
+
+            
             header('Location: ../login.php');
             exit();
-        }else{
-            echo 'Sozlesmeler kabul edilmeli!';
+        } else {
+            $error = 'Sozlesmeler kabul edilmeli!';
+            header("Location: ../register.php?error=" . urlencode($error));
         }
     }
-    
-    
 }
-
 ?>

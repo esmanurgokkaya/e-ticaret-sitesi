@@ -1,7 +1,7 @@
 <?php
-session_start();
-$user_id = $_SESSION['user_id'];
 require 'config.php';
+$user_id = $_SESSION['user_id'];
+
 
 if(isset($_POST['submit'])){
     $star =mysqli_real_escape_string($conn, $_POST['rate']);
