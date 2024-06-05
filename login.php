@@ -20,6 +20,8 @@
   <div class="container2">
     <div class="content">
       <h1 class="logo">ZEE</h1>
+  <?php  //echo password_hash(123456, PASSWORD_DEFAULT);
+     ?>
 
       <div class="text-sci">
         <h2>HOŞGELDİNİZ! <br><span>Hemen Giriş Yaparak Alışverişe Başlayın!</span></h2>
