@@ -35,7 +35,7 @@ $username = $_SESSION['username'];
           <small class="total">180 TL</small>
          <a href="product.php"> <h4>200 TL</h4></a>
         </div>
-        <input type="button" class="button" value="Sepete Ekle">
+        <!-- <input type="button" class="button" value="Sepete Ekle"> -->
 
        </div>
 

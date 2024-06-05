@@ -22,6 +22,11 @@
 //     });
 // });
 
+
+
+
+
+
 // function changeValue(inputElement, amount) {
 //     let currentValue = parseInt(inputElement.value);
 //     currentValue += amount;

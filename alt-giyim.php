@@ -26,7 +26,8 @@
               </select>
         
               <label for="price-range">Fiyat Aralığı</label>
-              <input type="range" id="price-range" name="price-range" min="0" max="1000">
+              <input type="range" id="price-range" name="price-range" min="0" max="1000" >
+              <span id="price-display">500</span>
         
               <label for="brand">Marka</label>
               <input type="text" id="brand" name="brand">
@@ -239,5 +240,17 @@
 
         <?php include 'footer.php';?>
       <script src="js/sepete-ekleme.js" defer></script>
+      <script>document.addEventListener('DOMContentLoaded', (event) => {
+            const priceRange = document.getElementById('price-range');
+            const priceDisplay = document.getElementById('price-display');
+
+            // İlk değer ayarı
+            priceDisplay.textContent = priceRange.value;
+
+            // Fiyat aralığı değiştikçe gösterilen değeri güncelle
+            priceRange.addEventListener('input', () => {
+                priceDisplay.textContent = priceRange.value;
+            });
+        });</script>
 </body>
 </html>
