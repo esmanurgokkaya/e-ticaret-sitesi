@@ -50,6 +50,10 @@
                 <div id="basket-list"></div>
                 <div id="total-price"></div>
                 <button id="clear-basket">Sepeti Temizle</button>
+                <form id="order-form" action="payment.php" method="post">
+                  <input type="hidden" id="sepet-data" name="sepet-data">
+                  <button type="button" id="submit-order">Ödeme Yap</button>
+                </form>
               </div>
 
             </li>

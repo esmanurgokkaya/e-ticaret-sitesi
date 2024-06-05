@@ -105,3 +105,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 'submit-order' düğmesine tıklama olayını ekle
+    var submitOrderButton = document.getElementById('submit-order');
+    submitOrderButton.addEventListener('click', function() {
+        // 'sepet-data' alanına JSON verileri ekle
+        var sepetDataField = document.getElementById('sepet-data');
+        sepetDataField.value = JSON.stringify(sepet);
+
+        // 'order-form' formunu gönder
+        var orderForm = document.getElementById('order-form');
+        orderForm.submit();
+    });
+});
