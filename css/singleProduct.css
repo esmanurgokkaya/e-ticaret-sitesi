@@ -33,7 +33,7 @@
 }
 
 .main-wrap .s-product {
-  width: 90%;
+  width: 9%;
   max-width: 750px;
   display: flex;
 }
@@ -45,6 +45,7 @@
 
 .main-wrap .s-product .s-image img {
   width: 100%;
+ 
 }
 
 .main-wrap .s-product .s-product-details {

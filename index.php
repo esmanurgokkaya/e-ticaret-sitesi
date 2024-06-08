@@ -31,7 +31,7 @@
         <span>Elbise takım </span>
         <div class="price">
           <small class="total">180 TL</small>
-         <a href="product.php"> <h4>200 TL</h4></a>
+         <a href="product.php?id=<?php echo 36 ?>"> <h4>200 TL</h4></a>
         </div>
         <input type="button" class="button" value="Sepete Ekle">
 
