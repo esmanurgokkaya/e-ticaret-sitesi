@@ -1,7 +1,6 @@
 <?php
 include 'config.php';
 
-
 if (isset($_POST['update_password'])) {
     $current_password = $_POST['current_password'];
     $new_password = $_POST['new_password'];

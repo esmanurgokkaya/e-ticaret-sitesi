@@ -1,4 +1,5 @@
-<?php require "php/config.php"?>
+<?php require "php/config.php" ?>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,12 +32,15 @@
           ?>
             <li>
               <div class="dropdown">
-                <button class="dropbtn"><a href="kullaniciBilgilerim.php" id="icon1" class="logging"><i class="fa-regular fa-user"></i></a>
-                  <p><?php echo $_SESSION['username']; ?></p>
+                <button class="dropbtn">
+                  <a href="kullaniciBilgilerim.php" class="logging">
+                    <i class="fa-regular fa-user" id="icon1"></i>
+                    <span id="username"><?php echo $_SESSION['username']; ?></span>
+                  </a>
                 </button>
                 <div class="dropdown-content">
                   <a href="#">Tüm Siparişlerim</a>
-                  <a href="#">Kullanıcı Bilgilerim</a>
+                  <a href="kullaniciBilgilerim.php">Kullanıcı Bilgilerim</a>
                   <a href="php/logout.php">Çıkış Yap</a>
                 </div>
               </div>

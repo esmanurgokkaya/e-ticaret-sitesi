@@ -1,6 +1,5 @@
 <?php
 include 'config.php';
-
 if (isset($_POST['loginButton'])) {
     $email = $_POST['email'];
     $pass = $_POST['pass'];

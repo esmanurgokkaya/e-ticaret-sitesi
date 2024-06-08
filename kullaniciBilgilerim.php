@@ -1,15 +1,25 @@
 <?php
-include 'php/config.php'; // Veritabanı bağlantısı
+include 'php/config.php';
 
-// Kullanıcı oturum açmış mı kontrol et
 if (isset($_SESSION['user_id'])) {
-    // Kullanıcı bilgilerini veritabanından çek
     $user_id = $_SESSION['user_id'];
-    $query = "SELECT username, email, phone,dob_day, dob_month, dob_year FROM users WHERE user_id = ?";
-    $query = $conn->prepare($query);
-    $query->execute([$user_id]);
-    $user = $query->fetch(PDO::FETCH_ASSOC);
+    $query = "SELECT username, email, phone, phone_code, dob_day, dob_month, dob_year FROM users WHERE user_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param('i', $user_id);
+    $stmt->execute();
+    $stmt->bind_result($user, $email, $phone, $phone_code, $dob_day, $dob_month, $dob_year);
+    $stmt->fetch();
+    $stmt->close();
 }
+
+// Değerler boşsa varsayılan boş değerleri atayın
+$user = isset($user) ? $user : '';
+$email = isset($email) ? $email : '';
+$phone = isset($phone) ? $phone : '';
+$phone_code = isset($phone_code) ? $phone_code : '';
+$dob_day = isset($dob_day) ? $dob_day : '';
+$dob_month = isset($dob_month) ? $dob_month : '';
+$dob_year = isset($dob_year) ? $dob_year : '';
 ?>
 
 <!DOCTYPE html>
@@ -40,32 +50,32 @@ if (isset($_SESSION['user_id'])) {
             <form action="php/update_profile.php" method="POST" class="form-section">
                 <h3>Üyelik Bilgilerim</h3><br>
                 <label for="name">Ad</label>
-                <input type="text" id="name" name="name" value="<?php if (isset($_SESSION['user_id'])) {  echo htmlspecialchars($user['username']); } ?>" required>
+                <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($user); ?>" required>
 
                 <label for="email">E-Mail</label>
-                <input type="email" id="email" name="email" value="<?php if (isset($_SESSION['user_id'])) {  echo htmlspecialchars($user['email']); } ?>" required>
+                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email); ?>" required>
 
                 <label for="phone">Cep Telefonu</label>
                 <div class="phone-input">
                     <select id="phone-code" name="phone_code" required>
-                        <option value="<?php if (isset($_SESSION['user_id'])) { echo htmlspecialchars($user['phone_code']); }?>" selected><?php if (isset($_SESSION['user_id'])) { echo htmlspecialchars($user['phone_code']); }?></option>
+                        <option value="<?php echo htmlspecialchars($phone_code); ?>" selected><?php echo htmlspecialchars($phone_code); ?></option>
                         <!-- Diğer telefon kodları buraya eklenebilir -->
                     </select>
-                    <input type="text" id="phone" name="phone" value="<?php if (isset($_SESSION['user_id'])) { echo htmlspecialchars($user['phone']); }?>" required>
+                    <input type="text" id="phone" name="phone" value="<?php echo htmlspecialchars($phone); ?>" required>
                 </div>
 
                 <label for="dob">Doğum Tarihiniz</label>
                 <div class="dob-input">
                     <select id="dob_day" name="dob_day" required>
-                        <option value="<?php if (isset($_SESSION['user_id'])) { echo htmlspecialchars($user['dob_day']); }?>" selected><?php if (isset($_SESSION['user_id'])) { echo htmlspecialchars($user['dob_day']); }?></option>
+                        <option value="<?php echo htmlspecialchars($dob_day); ?>" selected><?php echo htmlspecialchars($dob_day); ?></option>
                         <!-- Diğer günler buraya eklenebilir -->
                     </select>
                     <select id="dob_month" name="dob_month" required>
-                        <option value="<?php if (isset($_SESSION['user_id'])) { echo htmlspecialchars($user['dob_month']); }?>" selected><?php if (isset($_SESSION['user_id'])) { echo htmlspecialchars($user['dob_month']); }?></option>
+                        <option value="<?php echo htmlspecialchars($dob_month); ?>" selected><?php echo htmlspecialchars($dob_month); ?></option>
                         <!-- Diğer aylar buraya eklenebilir -->
                     </select>
                     <select id="dob_year" name="dob_year" required>
-                        <option value="<?php if (isset($_SESSION['user_id'])) { echo htmlspecialchars($user['dob_year']); }?>" selected><?php if (isset($_SESSION['user_id'])) { echo htmlspecialchars($user['dob_year']);} ?></option>
+                        <option value="<?php echo htmlspecialchars($dob_year); ?>" selected><?php echo htmlspecialchars($dob_year); ?></option>
                         <!-- Diğer yıllar buraya eklenebilir -->
                     </select>
                 </div>

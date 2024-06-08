@@ -18,9 +18,11 @@
                 if (isset($_GET['error'])) {
                     echo '<p style="color:red;font-weight:bold;">' . htmlspecialchars($_GET['error']) . '</p>';
                 } elseif (isset($_GET['succMes'])) {
-                    echo '<p style="color:green;font-weight:bold;">' . htmlspecialchars($_GET['succMes']) . '</p>';
+                    echo '<p style="color:green;font-weight:bold;">' . htmlspecialchars($_GET['succMes']) ."<a style='text-decoration: none; color:black;' href='login.php'>  Giris Yap!</a>". '</p>';
                 }
                 ?>
+                <label for="email">Email</label>
+                <input type="email" name="email" required>
                 <label for="new_password">Yeni Şifre</label>
                 <input type="password" id="new_password" name="new_password" required>
 
