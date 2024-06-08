@@ -10,9 +10,9 @@
     <header>
         <h1 class="logo">ZEE</h1>
         <div class="giyim">
-            <a href="ust-giyim.php">Üst Giyim</a>
-            <a href="alt-giyim.php">Alt Giyim</a>
-            <a href="dis-giyim.php">Dış Giyim</a>
+            <a class="giyimkategori" href="ust-giyim.php">Üst Giyim</a>
+            <a class="giyimkategori" href="alt-giyim.php">Alt Giyim</a>
+            <a class="giyimkategori" href="dis-giyim.php">Dış Giyim</a>
         </div>
     </header>
 
@@ -105,6 +105,7 @@
                         <th>Kategori</th>
                         <td>
                             <select name="kat_adi" id="kat_adi" class="kategorii">
+                                <option value="kategorisecim" name="">Seç</option>
                                 <option value="ustgiyim" name="ust_giyim">Üst Giyim</option>
                                 <option value="altgiyim" name="alt_giyim">Alt Giyim</option>
                                 <option value="disgiyim" name="dis_giyim">Dış Giyim</option>
@@ -134,16 +135,21 @@
                 $indirim = $_POST["indirim"];
                 $kat_adi = $_POST["kat_adi"];
 
-                // Kategori adından kategori ID'si belirleme
                 if ($kat_adi == "ustgiyim") {
                     $kat_id = 1;
+                    $folder = "images/ustgiyim/" . basename($resim);
                 } elseif ($kat_adi == "altgiyim") {
                     $kat_id = 2;
+                    $folder = "images/altgiyim/" . basename($resim);
                 } elseif ($kat_adi == "disgiyim") {
                     $kat_id = 3;
+                    $folder = "images/disgiyim/" . basename($resim);
                 } else {
-                    $kat_id = 0; // Eğer kategori adı bilinmiyorsa, 0 olarak atanabilir.
+                    $kat_id = 0; 
+                    $folder = "images/unknown/" . basename($resim);
                 }
+                
+                
 
                 if (move_uploaded_file($temp_name, $folder)) {
                     echo "Dosya başarıyla yüklendi.";
@@ -156,16 +162,19 @@
                 $stmt->bind_param("ssssssdiii", $urun_adi, $resim, $beden, $renk, $aciklama, $marka, $kumas, $fiyat, $indirim, $kat_id);
 
                 if ($stmt->execute()) {
-                    echo "Yeni ürün başarıyla eklendi.";
-                   
-                    exit();
+                    echo "<script>
+                        setTimeout(() => {
+                    window.location.href = 'admin.php';
+                }, 10);
+                    </script>";
+                     exit();
                 } else {
                     echo "Hata: " . $stmt->error;
                 }
 
                 $stmt->close();
             }
-
+//katID/
             $sql = "SELECT * FROM urunler";
             $result = $conn->query($sql);
 
@@ -187,7 +196,25 @@
                 </tr>";
 
                 while ($row = $result->fetch_assoc()) {
-                    $resimYolu = "images/" . $row["resim"];
+
+                    $kategori_klasoru = "";
+                    switch ($row["kategori_id"]) {
+                        case 1:
+                            $kategori_klasoru = "ustgiyim";
+                            break;
+                        case 2:
+                            $kategori_klasoru = "altgiyim";
+                            break;
+                        case 3:
+                            $kategori_klasoru = "disgiyim";
+                            break;
+                        default:
+                            $kategori_klasoru = "unknown";
+                            break;
+                    }
+            
+                    // Resmin yolunu oluştur
+                    $resimYolu = "images/" . $kategori_klasoru . "/" . $row["resim"];
                     echo "<tr>
                         <td>" . $row["urun_id"] . "</td>
                         <td>" . $row["urun_adi"] . "</td>
@@ -201,11 +228,11 @@
                         <td>" . $row["indirim"] . "</td>
                         <td>" . $row["kategori_id"] . "</td>
                         <td>
-                            <button onclick='openUpdateModal(" . $row["urun_id"] . ")'>Güncelle</button>
+                             <div id='update_product'<form><a  class='update_button' href='update_product.php'?urun_id= '". $row["urun_id"] ."'>Güncelle</a></form></div> <br>
                             <form method='post' id='deleteForm" . $row["urun_id"] . "'>
                                 <input type='hidden' name='id' value='" . $row["urun_id"] . "'>
                                 <input type='hidden' name='delete' value='1'>
-                                <input type='button' onclick='confirmDelete(" . $row["urun_id"] . ")' value='Sil'>
+                                <input type='button' id='delete' onclick='confirmDelete(" . $row["urun_id"] . ")' value='Sil'>
                             </form>
                         </td>
                     </tr>";
@@ -223,6 +250,11 @@
                 $stmt->bind_param("i", $id);
 
                 if ($stmt->execute()) {
+                    echo "<script>
+                        setTimeout(() => {
+                    window.location.href = 'admin.php';
+                }, 10);
+                    </script>";
                     exit();
                 } else {
                     echo "Hata: " . $stmt->error;
@@ -230,119 +262,6 @@
 
                 $stmt->close();
             }
-
-            if (isset($_POST["update"])) {
-                $urun_id = $_POST["urun_id"];
-                $urun_adi = $_POST["urun_adi"];
-                $resim = $_FILES["resim"]["name"];
-                $temp_name = $_FILES["resim"]["tmp_name"];
-                $folder = "images/" . basename($resim);
-                $beden = $_POST["beden"];
-                $renk = $_POST["renk"];
-                $aciklama = $_POST["aciklama"];
-                $marka = $_POST["marka"];
-                $kumas = $_POST["kumas"];
-                $fiyat = $_POST["fiyat"];
-                $indirim = $_POST["indirim"];
-                $kat_adi = $_POST["kat_adi"];
-
-                if (!empty($resim) && move_uploaded_file($temp_name, $folder)) {
-                    echo "Dosya başarıyla yüklendi.";
-                } elseif (empty($resim)) {
-                    $sql = "SELECT resim FROM urunler WHERE urun_id = ?";
-                    $stmt = $conn->prepare($sql);
-                    $stmt->bind_param("i", $urun_id);
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-                    $row = $result->fetch_assoc();
-                    $resim = $row['resim'];
-                } else {
-                    echo "Dosya yüklenemedi.";
-                }
-
-                if ($kat_adi == "ustgiyim") {
-                    $kat_id = 1;
-                } elseif ($kat_adi == "altgiyim") {
-                    $kat_id = 2;
-                } elseif ($kat_adi == "disgiyim") {
-                    $kat_id = 3;
-                } else {
-                    $kat_id = 0;
-                }
-
-                $sql = "UPDATE urunler SET urun_adi=?, resim=?, bedeni=?, urun_rengi=?, aciklama=?, marka=?, kumas=?, fiyati=?, indirim=?, kategori_id=? WHERE urun_id=?";
-                $stmt = $conn->prepare($sql);
-                $stmt->bind_param("ssssssddiii", $urun_adi, $resim, $beden, $renk, $aciklama, $marka, $kumas, $fiyat, $indirim, $kat_id, $urun_id);
-
-                if ($stmt->execute()) {
-                    header("Location: admin.php");
-                    exit();
-                } else {
-                    echo "Hata: " . $stmt->error;
-                }
-                $stmt->close();
-            }
-
-            echo "
-            <div id='overlay' style='display:none; position:fixed; top:0; left:0; 
-            width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:50;'></div>";
-
-            echo "
-            <div id='updateModal' style='display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); width:45%; background-color:white; z-index:100; padding:20px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);'>
-                <table>
-                    <tr>
-                        <td><label for='urun_adi'>Ürün Adı:</label></td>
-                        <td><input type='text' id='urun_adi' name='urun_adi'></td>
-                    </tr>
-                    <tr>
-                        <td><label for='resim'>Ürün Resmi:</label></td>
-                        <td><input type='file' id='resim' name='resim'></td>
-                    </tr>
-                    <tr>
-                        <td><label for='beden'>Beden:</label></td>
-                        <td><input type='text' id='beden' name='beden'></td>
-                    </tr>
-                    <tr>
-                        <td><label for='renk'>Renk:</label></td>
-                        <td><input type='text' id='renk' name='renk'></td>
-                    </tr>
-                    <tr>
-                        <td><label for='aciklama'>Açıklama:</label></td>
-                        <td><textarea id='aciklama' name='aciklama'></textarea></td>
-                    </tr>
-                    <tr>
-                        <td><label for='marka'>Marka:</label></td>
-                        <td><input type='text' id='marka' name='marka'></td>
-                    </tr>
-                    <tr>
-                        <td><label for='kumas'>Kumaş:</label></td>
-                        <td><input type='text' id='kumas' name='kumas'></td>
-                    </tr>
-                    <tr>
-                        <td><label for='fiyat'>Fiyat:</label></td>
-                        <td><input type='number' id='fiyat' name='fiyat' step='0.01'></td>
-                    </tr>
-                    <tr>
-                        <td><label for='indirim'>İndirim:</label></td>
-                        <td><input type='number' id='indirim' name='indirim' step='0.01'></td>
-                    </tr>
-                    <tr>
-                        <td><label for='kat_id'>Kategori Adı:</label></td>
-                        <td>
-                            <select name='kat_adi' id='kat_adi' class='kategorii'>
-                            <option value='ustgiyim' name='ust_giyim'>Üst Giyim</option>
-                            <option value='altgiyim' name='alt_giyim'>Alt Giyim</option>
-                            <option value='disgiyim' name='dis_giyim'>Dış Giyim</option>
-                    </select>
-                        </td>
-                    </tr>
-                </table>
-                <form id='updateForm' method='post'>
-                    <button type='button' onclick='updateProduct()'>Kaydet</button>
-                </form>
-            </div>";
-
-            $conn->close();
             ?>
         </main>
     </div>
