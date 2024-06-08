@@ -4,7 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "5761";
 $dbname = "zeedatabase";
 // Create connection
 $conn = mysqli_connect($servername,$username,$password,$dbname);

@@ -18,7 +18,12 @@ if (isset($_POST['loginButton'])) {
             
             $_SESSION['username'] = $row['username'];
             $_SESSION['user_id'] = $row['user_id'];
-            header("Location: ../index.php");
+            if ($row['username'] == 'admin') {
+                header('Location: ../admin.php');
+            } else {
+                header("Location: ../index.php");
+            }
+            
             exit();
         } else {
             $error = "Hatalı şifre.";

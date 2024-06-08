@@ -16,7 +16,7 @@
 <body>
   <?php include 'header.php';
   if (isset($_SESSION["user_id"])) {
-    echo "<h1 style='color:green;padding:10px;text-align:center;'>Hosgeldin " . $_SESSION['username']."</h1>";
+    echo "<h1 style='color:green;padding:10px;text-align:center;'>Hosgeldiniz " . $_SESSION['username']."</h1>";
   } ?>
   <section class="hero">
   </section>
