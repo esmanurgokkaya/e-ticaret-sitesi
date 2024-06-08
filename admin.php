@@ -1,3 +1,5 @@
+<?php require 'php/config.php';?>
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -119,7 +121,6 @@
             </form>
 
             <?php
-            require 'php/config.php';
 
             if (isset($_POST["submit"])) {
                 $urun_adi = $_POST["urun_adi"];
