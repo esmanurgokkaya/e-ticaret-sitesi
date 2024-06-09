@@ -15,17 +15,20 @@ if (isset($_POST['query'])) {
         echo "<div class='product-list'>";
         while ($row = $result->fetch_assoc()) {
             echo "<div class='product'>";
-            echo "<img src='" . $row['resim'] . "' alt='" . htmlspecialchars($row['urun_adi']) . "'>";
+            echo "<a href='product.php?id=" . urlencode($row['urun_id']) . "'>";
+            echo "<img src='" . htmlspecialchars($row['resim']) . "' alt='" . htmlspecialchars($row['urun_adi']) . "'>";
             echo "<div class='product-info'>";
-            echo "<h4>" . htmlspecialchars($row['urun_adi']) . " </h3>";
-            echo "<h4> Fiyat: " . htmlspecialchars($row['fiyati']) . " TL</p>";
+            echo "<h4>" . htmlspecialchars($row['urun_adi']) . "</h4>";
+            echo "<h4> Fiyat: " . htmlspecialchars($row['fiyati']) . " TL</h4>";
             echo "</div>";
+            echo "</a>";
             echo "</div>";
         }
         echo "</div>";
     } else {
-        echo "<p>Sonuç bulunamadı.</p>";
+        echo "<p class='bulunamadi'>Sonuç bulunamadı.</p>";
     }
+    
 
     $stmt->close();
     $conn->close();
