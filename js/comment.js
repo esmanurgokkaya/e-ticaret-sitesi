@@ -1,31 +1,27 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const btn = document.querySelector(".comments .comment-header .btn-add button");
+    const post = document.querySelector(".comments .comment-body .add-comment .btn");
+    const addComment = document.querySelector(".comments .comment-body .add-comment");
 
-const btn = document.querySelector(".comments .comment-header .btn-add");
-const post = document.querySelector(".comments .comment-body .add-comment .btn");
-const addComment = document.querySelector(".comments .comment-body .add-comment");
+    btn.addEventListener("click", function(e) {
+        if (addComment.classList.contains("hidden")) {
+            addComment.classList.remove("hidden");
+        } else {
+            addComment.classList.add("hidden");
+        }
+    });
 
-btn.addEventListener("click", function(e) {
-    if (addComment.classList.contains("hidden")) {
-        addComment.classList.remove("hidden");
-    } else {
-        addComment.classList.add("hidden");
-    }
-});
+    document.querySelector(".comments .more-comment button").addEventListener("click", function() {
+        var content = document.querySelector(".comments .comment-body");
+        if (content.style.height === "400px") {
+            content.style.height = "auto";
+            this.textContent = "Daha Az yorum Göster";
+        } else {
+            content.style.height = "400px";
+            this.textContent = "Daha Fazla yorum Göster";
+        }
+    });
 
-
-
-document.querySelector(".comments  .more-comment button").addEventListener("click", function() {
-    var content = document.querySelector(".comments .comment-body");
-    if (content.style.height === "400px") {
-        content.style.height = "auto";
-        this.textContent = "Daha Az yorum Göster";
-    } else {
-        content.style.height = "400px";
-        this.textContent = "Daha Fazla yorum Göster";
-    }
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.comments .comment-body .add-comment form');
     const chatBox = document.querySelector('.comments .comment-body');
 
@@ -53,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Belirli aralıklarla yeni yorumları çekme işlemi
     setInterval(() => {
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "php/insertcomment.php", true);
+        xhr.open("POST", "php/fetchcomments.php", true);
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -66,5 +62,5 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         xhr.send();
-    }, 500);
+    }, 5000);
 });

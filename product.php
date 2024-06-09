@@ -1,8 +1,8 @@
 <?php
 require 'php/config.php' ?>
 <?php
-if(isset( $_SESSION['user_id']))
-$user_id = $_SESSION['user_id'];
+if (isset($_SESSION['user_id']))
+  $user_id = $_SESSION['user_id'];
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +21,9 @@ $user_id = $_SESSION['user_id'];
   <main>
     <section class="main-wrap">
       <?php
-     if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
-      $urun_id = $_GET['id'];
-    }
+      if (isset($_GET['id']) && filter_var($_GET['id'], FILTER_VALIDATE_INT)) {
+        $urun_id = $_GET['id'];
+      }
 
       $query = "SELECT * FROM urunler  WHERE urun_id = $urun_id ";
       $result = mysqli_query($conn, $query);
@@ -97,7 +97,7 @@ $user_id = $_SESSION['user_id'];
             </div>
           </div>
           <div class="sub-btn">
-          <input type="text" name="urun" value="<?php echo $urun_id; ?>" hidden class="urun_id" />
+            <input type="text" name="urun" value="<?php echo $urun_id; ?>" hidden class="urun_id" />
             <button class="submit">sepete ekle</button>
           </div>
           </form>
@@ -112,8 +112,8 @@ $user_id = $_SESSION['user_id'];
         <h3></h3>
         <h3>yorum sayısı</h3>
         <div class="btn-add">
-        <button >Yorum Ekle</button>
-</div>
+          <button>Yorum Ekle</button>
+        </div>
       </div>
       <div class="comment-body">
         <div class="add-comment hidden">
