@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="css/header-footer.css">
   <link rel="stylesheet" href="css/shopping-cart.css">
   <script src="js/header.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 </head>
 
@@ -20,8 +22,11 @@
     <div class="container header__inner">
       <h1 class="logo">ZEE</h1>
       <form action="" method="get" id="arama" class="search">
-        <input type="text" placeholder="Ürün Ara">
+        <input type="text" name="ara" placeholder="Ürün Ara">
         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div id="search-results">
+          <ul id="results-list"></ul>
+        </div>
       </form>
       <div class="icons">
 
@@ -74,4 +79,30 @@
       </ul>
     </div>
   </header>
+  <script>
+    $(document).ready(function(){
+    $('#arama input').keyup(function(){
+        var query = $(this).val();
+        if(query !== ''){
+            $.ajax({
+                url: 'arama_sonuc.php',
+                method: 'POST',
+                data: {query:query},
+                success: function(data){
+                    $('#search-results').show();
+                    $('#results-list').html(data);
+                }
+            });
+        } else {
+            $('#search-results').hide();
+        }
+    });
+
+    $(document).on('click', '#results-list li', function(){
+        var result = $(this).text();
+        $('#arama input').val(result);
+        $('#search-results').hide();
+    });
+});
+  </script>
 </body>
