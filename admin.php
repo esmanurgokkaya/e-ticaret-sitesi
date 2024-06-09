@@ -175,7 +175,7 @@
 
                 $stmt->close();
             }
-//katID/
+
             $sql = "SELECT * FROM urunler";
             $result = $conn->query($sql);
 
@@ -214,7 +214,7 @@
                             break;
                     }
             
-                    // Resmin yolunu oluştur
+                    
                     $resimYolu = "images/" . $kategori_klasoru . "/" . $row["resim"];
                     echo "<tr>
                         <td>" . $row["urun_id"] . "</td>

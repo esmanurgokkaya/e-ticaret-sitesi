@@ -1,8 +1,15 @@
+<<<<<<< HEAD
+<?php 
+require 'php/config.php' ?>
+<?php 
+$user_id = $_SESSION['user_id'];
+=======
 <?php
 require 'php/config.php' ?>
 <?php
 if (isset($_SESSION['user_id']))
   $user_id = $_SESSION['user_id'];
+>>>>>>> master
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +24,54 @@ if (isset($_SESSION['user_id']))
 </head>
 
 <body>
+<<<<<<< HEAD
+<?php include 'header.php';?>
+  <main>
+    <section class="main-wrap">
+      <?php
+      if(isset($_GET['id'])){
+        $urun_id = $_GET['id'];
+    }
+    
+        $query = "SELECT * FROM urunler  WHERE urun_id = $urun_id ";
+        $result = mysqli_query($conn, $query);
+       
+        if (mysqli_num_rows($result) > 0) {
+        
+      while($row = mysqli_fetch_assoc($result)){ 
+        $kategori_klasoru = "";
+
+        switch ($row["kategori_id"]) {
+            case 1:
+                $kategori_klasoru = "ustgiyim";
+                break;
+            case 2:
+                $kategori_klasoru = "altgiyim";
+                break;
+            case 3:
+                $kategori_klasoru = "disgiyim";
+                break;
+            default:
+                $kategori_klasoru = "unknown";
+                break;
+        }
+
+        // Resmin yolunu oluştur
+        $resimYolu = "images/" . $kategori_klasoru . "/" . $row["resim"];?>
+      <div class="s-product">
+        <div class="s-image">
+          <img src="<?php echo $resimYolu ?>"   alt=" <?php echo $row["urun_adi"] ?> ">
+        </div>
+        <div class="s-product-details">
+          <div class="details">
+
+            <h2><?php echo $row['urun_adi'] ?></h2>
+            <h3><?php echo $row['fiyati'] ?></h3>
+            <h4><?php if($row['indirim'] > 0)  echo $row['indirim']?></h4>
+            <p><?php echo $row['aciklama'] ?>
+            </p>
+          </div><?php  } } ?>
+=======
   <?php include 'header.php'; ?>
   <main>
     <section class="main-wrap">
@@ -65,6 +120,7 @@ if (isset($_SESSION['user_id']))
                 </p>
               </div><?php  }
                 } ?>
+>>>>>>> master
           <div class="sizes">
             <form action="php/cookie.php" method="post" class="form">
               <div class="select-size">
@@ -105,7 +161,13 @@ if (isset($_SESSION['user_id']))
           </form>
             </div>
           </div>
+<<<<<<< HEAD
+        </div>
+      </div>
+  
+=======
 
+>>>>>>> master
     </section>
     <!-- yorum ekleme alanı  -->
 
@@ -145,9 +207,16 @@ if (isset($_SESSION['user_id']))
               <button type="submit" name="submit">Gönder</button>
             </div>
           </form>
+<<<<<<< HEAD
+
+        </div>
+ 
+<?php require "php/insertcomment.php"; ?>
+=======
         </div>
 
         <?php require "php/insertcomment.php"; ?>
+>>>>>>> master
 
       </div>
 
@@ -155,11 +224,19 @@ if (isset($_SESSION['user_id']))
         <button>daha fazla yorum göster</button>
       </div>
       <!-- yorumlar  -->
+<<<<<<< HEAD
+</section>
+
+    <div class="product-header">
+
+  <h3>bunları da beğenebilirsiniz</h3>
+=======
     </section>
 
     <div class="product-header">
 
       <h3>bunları da beğenebilirsiniz</h3>
+>>>>>>> master
 
     </div>
 
@@ -168,8 +245,13 @@ if (isset($_SESSION['user_id']))
       <div class="products" id="yeni">
         <!-- 1.ürün -->
         <div class="product">
+<<<<<<< HEAD
+        <img src="<?php echo $resimYolu ?>"   alt=" <?php echo $row["urun_adi"] ?> ">
+        <div class="description">
+=======
           <img src="<?php echo $resimYolu ?>" alt=" <?php echo $row["urun_adi"] ?> ">
           <div class="description">
+>>>>>>> master
             <span>Elbise takım </span>
             <div class="price">
               <h4>250 TL</h4>
@@ -181,8 +263,13 @@ if (isset($_SESSION['user_id']))
         </div>
         <!-- 2.ürün -->
         <div class="product">
+<<<<<<< HEAD
+        <img src="<?php echo $resimYolu ?>"   alt=" <?php echo $row["urun_adi"] ?> ">
+        <div class="description">
+=======
           <img src="<?php echo $resimYolu ?>" alt=" <?php echo $row["urun_adi"] ?> ">
           <div class="description">
+>>>>>>> master
             <span>Elbise takım </span>
             <div class="price">
               <h4>250 TL</h4>
@@ -193,8 +280,13 @@ if (isset($_SESSION['user_id']))
         </div>
         <!-- 3.ürün -->
         <div class="product">
+<<<<<<< HEAD
+        <img src="<?php echo $resimYolu ?>"   alt=" <?php echo $row["urun_adi"] ?> ">
+        <div class="description">
+=======
           <img src="<?php echo $resimYolu ?>" alt=" <?php echo $row["urun_adi"] ?> ">
           <div class="description">
+>>>>>>> master
             <span>Elbise takım </span>
             <div class="price">
               <h4>250 TL</h4>
@@ -205,8 +297,13 @@ if (isset($_SESSION['user_id']))
         </div>
         <!-- 4.ürün -->
         <div class="product">
+<<<<<<< HEAD
+        <img src="<?php echo $resimYolu ?>"   alt=" <?php echo $row["urun_adi"] ?> ">
+        <div class="description">
+=======
           <img src="<?php echo $resimYolu ?>" alt=" <?php echo $row["urun_adi"] ?> ">
           <div class="description">
+>>>>>>> master
             <span>Elbise takım </span>
             <div class="price">
               <h4>250 TL</h4>

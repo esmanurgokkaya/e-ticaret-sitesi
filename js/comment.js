@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+const btn = document.querySelector(".comments .comment-header button");
+const post = document.querySelector(".comments .comment-body .add-comment .btn");
+const addComment =document.querySelector(".comments .comment-body .add-comment")
+btn.onclick =()=>{
+    e.preventDefault();
+    if (addComment.style.display === "block") {
+        addComment.style.display = "none";
+        btn.disabled = false; // Butonun tıklanabilirliğini etkinleştir
+    } else {
+        addComment.style.display = "block";
+        btn.disabled = true; // Butonun tıklanabilirliğini devre dışı bırak
+    }
+
+    btn.disabled = false;
+}
+=======
 document.addEventListener("DOMContentLoaded", function() {
     const btn = document.querySelector(".comments .comment-header .btn-add button");
     const post = document.querySelector(".comments .comment-body .add-comment .btn");
@@ -10,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
             addComment.classList.add("hidden");
         }
     });
+>>>>>>> master
 
     document.querySelector(".comments .more-comment button").addEventListener("click", function() {
         var content = document.querySelector(".comments .comment-body");
@@ -22,6 +40,22 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+<<<<<<< HEAD
+document.querySelector(".comments  .more-comment button").addEventListener("click", function() {
+    var content = document.querySelector(".comments .comment-body");
+    if (content.style.height === "400px") {
+        content.style.height = "auto";
+        this.textContent = "Daha Az yorum Göster";
+    } else {
+        content.style.height = "400px";
+        this.textContent = "Daha Fazla yorum Göster";
+    }
+});
+
+
+document.addEventListener('DOMContentLoaded', function() {
+=======
+>>>>>>> master
     const form = document.querySelector('.comments .comment-body .add-comment form');
     const chatBox = document.querySelector('.comments .comment-body');
 
@@ -49,7 +83,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // Belirli aralıklarla yeni yorumları çekme işlemi
     setInterval(() => {
         const xhr = new XMLHttpRequest();
+<<<<<<< HEAD
+        xhr.open("POST", "php/insertcomment.php", true);
+=======
         xhr.open("POST", "php/fetchcomments.php", true);
+>>>>>>> master
 
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -62,5 +100,9 @@ document.addEventListener("DOMContentLoaded", function() {
         };
 
         xhr.send();
+<<<<<<< HEAD
+    }, 500);
+=======
     }, 5000);
+>>>>>>> master
 });

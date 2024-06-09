@@ -10,6 +10,23 @@ function guncelleSepetIkonu() {
     // Çerezdeki ürün sayısını bulma
     sepettekiUrunSayisi = cartItems.length;
   }
+<<<<<<< HEAD
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 'submit-order' düğmesine tıklama olayını ekle
+    var submitOrderButton = document.getElementById('submit-order');
+    submitOrderButton.addEventListener('click', function() {
+        // 'sepet-data' alanına JSON verileri ekle
+        var sepetDataField = document.getElementById('sepet-data');
+        sepetDataField.value = JSON.stringify(sepet);
+
+        // 'order-form' formunu gönder
+        var orderForm = document.getElementById('order-form');
+        orderForm.submit();
+    });
+});
+=======
 console.log(sepettekiUrunSayisi);
   const count = document.getElementById('count');
   count.innerText = sepettekiUrunSayisi;
@@ -292,3 +309,4 @@ window.onload = function() {
 //     sepetiGuncelle();
 // }
 
+>>>>>>> master

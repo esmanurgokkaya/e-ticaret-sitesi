@@ -13,10 +13,64 @@ require 'php/config.php';
 
 <body>
     <div class="container">
-        <div class="products">
+        <!-- <div class="products">
             <h2>Sepetim</h2>
             <?php
 
+<<<<<<< HEAD
+            </div> -->
+            <?php
+// JSON verilerini al
+$json_data = file_get_contents('php://input');
+
+// JSON verilerini diziye dönüştür
+$data = json_decode($json_data, true);
+
+// Veriler boş değilse ve dönüştürme işlemi başarılıysa devam et
+if (!empty($data)) {
+    // Sepet verilerini kullanarak sayfa içeriğini oluştur
+    $page_content = '<div class="products">';
+    $page_content .= '<h2>Sepetim</h2>';
+
+    foreach ($data as $urun) {
+        $page_content .= '<div class="product-item">';
+        $page_content .= '<img src="' . $urun['resim'] . '" alt="' . $urun['isim'] . '">';
+        $page_content .= '<div>Ürün Adı: ' . $urun['isim'] . '</div>';
+        $page_content .= '<div>Fiyat: ' . $urun['fiyat'] . '</div>';
+        $page_content .= '</div>';
+    }
+
+    $page_content .= '</div>';
+
+    // Sayfa içeriğini ekrana yazdır
+    echo $page_content;
+} else {
+    // JSON verileri boşsa veya dönüştürme işlemi başarısız olduysa hata mesajı gönder
+    echo 'Gönderilen veriler geçersiz!';
+}
+?>
+
+        </div>
+        <div class="order-summary">
+            <h2>Sipariş Özeti</h2>
+            <div class="order-details">
+                <div>Toplam Ürün Sayısı: 3</div>
+                <div>Toplam Tutar: $50</div>
+                <div>Kargo Ücreti: $0</div>
+                <div>Toplam Tutar (Kargo Ücreti Dahil): $50</div>
+            </div>
+            <div class="order-details">
+                <h3>Ödeme Yap</h3>
+                <input type="text" placeholder="Ad" name="ad">
+                <input type="text" placeholder="Soyad" name="soyad">
+                <input type="text" placeholder="Telefon Numarası" name="telefon">
+                <input type="text" placeholder="Adres" name="adres">
+                <input type="text" placeholder="Kredi Kartı Numarası" name="kartno">
+                <input type="text" placeholder="Son Kullanma Tarihi (MM/YY)" name="skt">
+                <input type="text" placeholder="Güvenlik Kodu" name="guvenlikkodu">
+                <button name="submit">Ödeme Yap</button>
+            </div>
+=======
             if (isset($_COOKIE['cart'])) {
                 $toplam_fiyat = 0;
                 $toplam_urun = 0;
@@ -103,6 +157,7 @@ require 'php/config.php';
             <input type="text" name="fiyat"  value= "<?php echo $toplam_fiyat+50 ?>" hidden>
             <button name="submit">Ödeme Yap</button>
         </form>
+>>>>>>> master
         </div>
     </div>
     </div></div>
