@@ -101,9 +101,6 @@ if (isset($_SESSION['user_id']))
           <input type="text" name="urun" value="<?php echo $urun_id; ?>" hidden id="urun_id" class="urun_id"/>
             <button class="submit" >sepete ekle</button>
 
-            <input type="text" name="urun" value="<?php echo $urun_id; ?>" hidden class="urun_id" />
-            <button class="submit">sepete ekle</button>
-
           </div>
           </form>
             </div>
