@@ -33,7 +33,7 @@
 }
 
 .main-wrap .s-product {
-  width: 9%;
+  width: 90%;
   max-width: 750px;
   display: flex;
 }
@@ -268,9 +268,12 @@ margin-bottom:20px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+.comments .comment-body  .hidden {
     display: none;
 }
-.comments .comment-body .add-comment .user_id{
+.comments .comment-body .add-comment .user_id,
+.comments .comment-body .add-comment .urun_id {
     display: none;
 }
 

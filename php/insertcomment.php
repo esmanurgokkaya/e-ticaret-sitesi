@@ -6,11 +6,12 @@ require 'config.php';
 $rate = $_POST['rate'] ?? '';
 $comment = $_POST['comment'] ?? '';
 $user_id = $_POST['user_id'] ?? '';
+$urun_id = $_POST['urun_id'] ?? '';
 
 // Veritabanına yorum ekle
 if (!empty($rate) && !empty($comment) && !empty($user_id)) {
-    $stmt = $conn->prepare("INSERT INTO yorum (user_id, puan, yorum, tarih) VALUES (?, ?, ?, NOW())");
-    $stmt->bind_param("iis", $user_id, $rate, $comment);
+    $stmt = $conn->prepare("INSERT INTO yorum (urun_id,user_id, puan, yorum, tarih) VALUES (?,?, ?, ?, NOW())");
+    $stmt->bind_param("iiis",$urun_id, $user_id, $rate, $comment);
     $stmt->execute();
     $stmt->close();
 }
