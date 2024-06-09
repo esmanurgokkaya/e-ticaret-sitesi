@@ -1,18 +1,16 @@
-const btn = document.querySelector(".comments .comment-header button");
-const post = document.querySelector(".comments .comment-body .add-comment .btn");
-const addComment =document.querySelector(".comments .comment-body .add-comment")
-btn.onclick =()=>{
-    e.preventDefault();
-    if (addComment.style.display === "block") {
-        addComment.style.display = "none";
-        btn.disabled = false; // Butonun tıklanabilirliğini etkinleştir
-    } else {
-        addComment.style.display = "block";
-        btn.disabled = true; // Butonun tıklanabilirliğini devre dışı bırak
-    }
 
-    btn.disabled = false;
-}
+const btn = document.querySelector(".comments .comment-header .btn-add");
+const post = document.querySelector(".comments .comment-body .add-comment .btn");
+const addComment = document.querySelector(".comments .comment-body .add-comment");
+
+btn.addEventListener("click", function(e) {
+    if (addComment.classList.contains("hidden")) {
+        addComment.classList.remove("hidden");
+    } else {
+        addComment.classList.add("hidden");
+    }
+});
+
 
 
 document.querySelector(".comments  .more-comment button").addEventListener("click", function() {
