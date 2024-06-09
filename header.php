@@ -52,19 +52,10 @@
             </li> <?php } else { ?>
             <li><a href="login.php" id="icon1" class="logging"><i class="fa-regular fa-user"></i></a> <?php } ?>
             <li>
-              <a href="#" class="shopping" title="Sepete Ekle">
+              <a href="<?php if(isset($_COOKIE['cart'])) echo 'payment.php' ; else echo '#'?>" class="shopping" title="Sepete Ekle">
                 <i id="icon2" class="fa-solid fa-cart-shopping"></i>
-                <span id="count">0</span></a>
-              <div id="shopping-basket" class="shopping-basket">
-                <div id="basket-list"></div>
-                <div id="total-price"></div>
-                <button id="clear-basket">Sepeti Temizle</button>
-                <form id="order-form" action="payment.php" method="post">
-                  <input type="hidden" id="sepet-data" name="sepet-data">
-                  <button type="button" id="submit-order">Ödeme Yap</button>
-                </form>
-              </div>
-
+                </a>
+        
             </li>
         </ul>
       </div>
