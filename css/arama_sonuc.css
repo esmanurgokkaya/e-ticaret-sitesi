@@ -15,12 +15,9 @@
     border-bottom: 1px solid #ddd;
     width: 100%;
 }
-.product:last-child {
-    border-bottom: none;
-}
 .product img {
     max-width: 50px;
-    margin-right: 16px;
+    margin-right: 16px
 }
 .product-info {
     display: flex;
@@ -28,4 +25,14 @@
 }
 .product:hover {
     background-color: #f1f1f1;
+}
+.product a{
+    color: black;
+}
+
+.bulunamadi{
+    position: absolute;  
+    margin-top: 40px; 
+    color: red;
+    font-weight: bold;
 }
