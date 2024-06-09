@@ -90,14 +90,19 @@ require 'php/config.php';
         </div>
         <div class="order-details">
             <h3>Ödeme Yap</h3>
+            <form action="php/pay.php" method="post">
             <input type="text" placeholder="Ad" name="ad">
             <input type="text" placeholder="Soyad" name="soyad">
-            <input type="text" placeholder="Telefon Numarası" name="telefon">
-            <input type="text" placeholder="Adres" name="adres">
-            <input type="text" placeholder="Kredi Kartı Numarası" name="kartno">
+            <input type="text" placeholder="Telefon Numarası" name="telefon" required>
+            <input type="text" placeholder="Adres" name="adres" required>
+            <input type="text" placeholder="Kredi Kartı Numarası" name="kartno" required>
             <input type="text" placeholder="Son Kullanma Tarihi (MM/YY)" name="skt">
             <input type="text" placeholder="Güvenlik Kodu" name="guvenlikkodu">
+            <input type="text" name="urun"  value= "<?php echo $urunID ?>" hidden>
+            <input type="text" name="adet"  value= "<?php echo $toplam_urun ?>" hidden>
+            <input type="text" name="fiyat"  value= "<?php echo $toplam_fiyat+50 ?>" hidden>
             <button name="submit">Ödeme Yap</button>
+        </form>
         </div>
     </div>
     </div></div>
