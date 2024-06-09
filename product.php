@@ -1,8 +1,7 @@
 <?php 
-session_start();
+require 'php/config.php' ?>
+<?php 
 $user_id = $_SESSION['user_id'];
-echo $user_id;
-
 ?>
 
 <!DOCTYPE html>
@@ -18,32 +17,51 @@ echo $user_id;
 
 <body>
 <?php include 'header.php';?>
-<?php require 'php/config.php' ?>
-<!-- <?php
-// if(isset($_GET[''])){
-//     $urun_id = $_GET[''];
-// }
-?> -->
-  <!-- php ile urlden id  al slectten kontrol ett ve ekrana ürünü yazdır  -->
   <main>
     <section class="main-wrap">
+      <?php
+      if(isset($_GET['id'])){
+        $urun_id = $_GET['id'];
+    }
+    
+        $query = "SELECT * FROM urunler  WHERE urun_id = $urun_id ";
+        $result = mysqli_query($conn, $query);
+       
+        if (mysqli_num_rows($result) > 0) {
+        
+      while($row = mysqli_fetch_assoc($result)){ 
+        $kategori_klasoru = "";
+
+        switch ($row["kategori_id"]) {
+            case 1:
+                $kategori_klasoru = "ustgiyim";
+                break;
+            case 2:
+                $kategori_klasoru = "altgiyim";
+                break;
+            case 3:
+                $kategori_klasoru = "disgiyim";
+                break;
+            default:
+                $kategori_klasoru = "unknown";
+                break;
+        }
+
+        // Resmin yolunu oluştur
+        $resimYolu = "images/" . $kategori_klasoru . "/" . $row["resim"];?>
       <div class="s-product">
         <div class="s-image">
-          <img src="images/alt giyim/etek10.webp" alt="">
-
+          <img src="<?php echo $resimYolu ?>"   alt=" <?php echo $row["urun_adi"] ?> ">
         </div>
         <div class="s-product-details">
           <div class="details">
 
-            <h2> ürün</h2>
-            <h3>$150</h3>
-            <h4>35% off</h4>
-            <p>Lorem ipsum,
-              dolor sit amet consectetur adipisicing elit.
-              Dolorum qui, tenetur molestias, rerum beatae corporis,
-              excepturi accusantium quasi inventore soluta!
+            <h2><?php echo $row['urun_adi'] ?></h2>
+            <h3><?php echo $row['fiyati'] ?></h3>
+            <h4><?php if($row['indirim'] > 0)  echo $row['indirim']?></h4>
+            <p><?php echo $row['aciklama'] ?>
             </p>
-          </div>
+          </div><?php  } } ?>
           <div class="sizes">
             <form action="" class="form">
               <div class="select-size">
@@ -85,7 +103,7 @@ echo $user_id;
           </div>
         </div>
       </div>
-
+  
     </section>
 <!-- yorum ekleme alanı  -->
 
@@ -126,40 +144,18 @@ echo $user_id;
           </form>
 
         </div>
-<?php
-$sql= "SELECT puan, yorum, tarih FROM yorum" ;
-$result = mysqli_query($conn, $sql);
-if (mysqli_num_rows($result) > 0) {
-  while ($row = mysqli_fetch_assoc($result)) {
-?>
-        <div class="comment-box">
-          <div class="star">
-      <?php while($row['puan']>0){?>      
-            <i class="fa fa-star"></i> 
-            <?php
-           $row['puan']--;
-            }    ?>
-           
-          </div>
-          <div class="comment-detail">
-            <span><?php echo 'esma '?></span>
-            <span>|</span>
-            <span><?php echo  $row[ 'tarih' ] ?></span>
-          </div>
-          <p><?php echo   $row["yorum"] ?></p>
-        </div>
-
-<?php  } 
-} ?>    
-
+ 
+<?php require "php/insertcomment.php"; ?>
 
       </div>
       <div class="more-comment">
         <button>daha fazla yorum göster</button>
       </div>
       <!-- yorumlar  -->
-    </section>
+</section>
+
     <div class="product-header">
+
   <h3>bunları da beğenebilirsiniz</h3>
 
     </div>
@@ -169,8 +165,8 @@ if (mysqli_num_rows($result) > 0) {
       <div class="products" id="yeni">
         <!-- 1.ürün -->
         <div class="product">
-          <img src="images/alt giyim/etek10.webp" alt="">
-          <div class="description">
+        <img src="<?php echo $resimYolu ?>"   alt=" <?php echo $row["urun_adi"] ?> ">
+        <div class="description">
             <span>Elbise takım </span>
             <div class="price">
               <h4>250 TL</h4>
@@ -182,8 +178,8 @@ if (mysqli_num_rows($result) > 0) {
         </div>
         <!-- 2.ürün -->
         <div class="product">
-          <img src="images/yeni/saten-gomlek2.webp" alt="">
-          <div class="description">
+        <img src="<?php echo $resimYolu ?>"   alt=" <?php echo $row["urun_adi"] ?> ">
+        <div class="description">
             <span>Elbise takım </span>
             <div class="price">
               <h4>250 TL</h4>
@@ -194,8 +190,8 @@ if (mysqli_num_rows($result) > 0) {
         </div>
         <!-- 3.ürün -->
         <div class="product">
-          <img src="images/yeni/kazak.jpg" alt="">
-          <div class="description">
+        <img src="<?php echo $resimYolu ?>"   alt=" <?php echo $row["urun_adi"] ?> ">
+        <div class="description">
             <span>Elbise takım </span>
             <div class="price">
               <h4>250 TL</h4>
@@ -206,8 +202,8 @@ if (mysqli_num_rows($result) > 0) {
         </div>
         <!-- 4.ürün -->
         <div class="product">
-          <img src="images/yeni/kaban.jpg" alt="">
-          <div class="description">
+        <img src="<?php echo $resimYolu ?>"   alt=" <?php echo $row["urun_adi"] ?> ">
+        <div class="description">
             <span>Elbise takım </span>
             <div class="price">
               <h4>250 TL</h4>

@@ -1,38 +1,48 @@
-// // function changeValue(amount) {
-// //     const numberInput = document.getElementById('number');
-// //     let currentValue = parseInt(numberInput.value);
-// //     currentValue += amount;
-// //     numberInput.value = currentValue;
-// // }
-// document.addEventListener('DOMContentLoaded', () => {
-//     const spinners = document.querySelectorAll('.container .products .product-item .number-spinner');
-    
-//     spinners.forEach(spinner => {
-//         const decreaseButton = spinner.querySelector('.container .products .product-item .number-spinner .decrease');
-//         const increaseButton = spinner.querySelector('.container .products .product-item .number-spinner .increase');
-//         const numberInput = spinner.querySelector('.container .products .product-item .number-spinner .number-input');
-        
-//         decreaseButton.addEventListener('click', () => {
-//             changeValue(numberInput, -1);
-//         });
-        
-//         increaseButton.addEventListener('click', () => {
-//             changeValue(numberInput, 1);
-//         });
-//     });
-// });
 
-// function changeValue(inputElement, amount) {
-//     let currentValue = parseInt(inputElement.value);
-//     currentValue += amount;
-    
-//     // Minimum değeri kontrol et
-//     if (currentValue < 1) {
-//         currentValue = 1;
-//     }
-    
-//     inputElement.value = currentValue;
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     // Sepet verilerini yakala
+//     var sepetDataField = document.getElementById('sepet-data');
+//     var sepetData = JSON.parse(sepetDataField.value);
+
+//     // Yakalanan verileri kullanarak sayfayı güncelle
+//     sepetiGoster(sepetData);
+// });
+// function sepetiGoster(sepetData) {
+//     var productsDiv = document.querySelector('.products');
+//     productsDiv.innerHTML = '<h2>Sepetim</h2>';
+
+//     // JSON verileri üzerinde dönerek her bir ürünü ekrana ekleyin
+//     sepetData.forEach(function(urun) {
+//         var productItemDiv = document.createElement('div');
+//         productItemDiv.classList.add('product-item');
+        
+//         var urunImg = document.createElement('img');
+//         urunImg.src = urun.resim;
+//         urunImg.alt = urun.isim;
+
+//         var urunAdDiv = document.createElement('div');
+//         urunAdDiv.textContent = 'Ürün Adı: ' + urun.isim;
+
+//         var urunFiyatDiv = document.createElement('div');
+//         urunFiyatDiv.textContent = 'Fiyat: ' + urun.fiyat;
+
+//         productItemDiv.appendChild(urunImg);
+//         productItemDiv.appendChild(urunAdDiv);
+//         productItemDiv.appendChild(urunFiyatDiv);
+
+//         productsDiv.appendChild(productItemDiv);
+//     });
 // }
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const spinners = document.querySelectorAll('.number-spinner');
 

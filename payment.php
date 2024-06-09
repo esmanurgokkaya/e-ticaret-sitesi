@@ -10,7 +10,7 @@
 
 <body>
     <div class="container">
-        <div class="products">
+        <!-- <div class="products">
             <h2>Sepetim</h2>
             <div class="product-item">
                 <img src="images/bg.jpg" alt="Ürün 1">
@@ -32,8 +32,38 @@
                 </div>
                 <div>Fiyat: $20</div>
 
-            </div>
-            Devam eden ürünler buraya eklenebilir
+            </div> -->
+            <?php
+// JSON verilerini al
+$json_data = file_get_contents('php://input');
+
+// JSON verilerini diziye dönüştür
+$data = json_decode($json_data, true);
+
+// Veriler boş değilse ve dönüştürme işlemi başarılıysa devam et
+if (!empty($data)) {
+    // Sepet verilerini kullanarak sayfa içeriğini oluştur
+    $page_content = '<div class="products">';
+    $page_content .= '<h2>Sepetim</h2>';
+
+    foreach ($data as $urun) {
+        $page_content .= '<div class="product-item">';
+        $page_content .= '<img src="' . $urun['resim'] . '" alt="' . $urun['isim'] . '">';
+        $page_content .= '<div>Ürün Adı: ' . $urun['isim'] . '</div>';
+        $page_content .= '<div>Fiyat: ' . $urun['fiyat'] . '</div>';
+        $page_content .= '</div>';
+    }
+
+    $page_content .= '</div>';
+
+    // Sayfa içeriğini ekrana yazdır
+    echo $page_content;
+} else {
+    // JSON verileri boşsa veya dönüştürme işlemi başarısız olduysa hata mesajı gönder
+    echo 'Gönderilen veriler geçersiz!';
+}
+?>
+
         </div>
         <div class="order-summary">
             <h2>Sipariş Özeti</h2>
@@ -47,9 +77,8 @@
                 <h3>Ödeme Yap</h3>
                 <input type="text" placeholder="Ad" name="ad">
                 <input type="text" placeholder="Soyad" name="soyad">
+                <input type="text" placeholder="Telefon Numarası" name="telefon">
                 <input type="text" placeholder="Adres" name="adres">
-                <input type="text" placeholder="Şehir" name="sehir">
-                <input type="text" placeholder="Posta Kodu" name="postakodu">
                 <input type="text" placeholder="Kredi Kartı Numarası" name="kartno">
                 <input type="text" placeholder="Son Kullanma Tarihi (MM/YY)" name="skt">
                 <input type="text" placeholder="Güvenlik Kodu" name="guvenlikkodu">

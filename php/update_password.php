@@ -1,6 +1,5 @@
 <?php
 include 'config.php';
-session_start();
 
 if (isset($_POST['update_password'])) {
     $current_password = $_POST['current_password'];

@@ -16,7 +16,7 @@
 <body>
   <?php include 'header.php';
   if (isset($_SESSION["user_id"])) {
-    echo "<h1 style='color:green;padding:10px;text-align:center;'>Hosgeldin " . $_SESSION['username']."</h1>";
+    echo "<h1 style='color:green;padding:10px;text-align:center;'>Hosgeldiniz " . $_SESSION['username']."</h1>";
   } ?>
   <section class="hero">
   </section>
@@ -27,15 +27,13 @@
       <div class="product">
 
         <img src="images/alt giyim/etek2.webp" alt="">
-        <div class="description">
-          <span>Elbise takım </span>
-          <div class="price">
-            <small class="total">180 TL</small>
-            <a href="product.php">
-              <h4>200 TL</h4>
-            </a>
-          </div>
-          <input type="button" class="button" value="Sepete Ekle">
+       <div class="description">
+        <span>Elbise takım </span>
+        <div class="price">
+          <small class="total">180 TL</small>
+         <a href="product.php?id=<?php echo 36 ?>"> <h4>200 TL</h4></a>
+        </div>
+        <input type="button" class="button" value="Sepete Ekle">
 
         </div>
 
